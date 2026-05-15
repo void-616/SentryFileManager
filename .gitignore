@@ -8,3 +8,6 @@
 /signing.properties
 .DS_Store
 *.iml
+*.bak
+build_log.txt
+build/
