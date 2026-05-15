@@ -8,6 +8,20 @@ apply plugin: 'kotlin-parcelize'
 
 apply from: '../signing.gradle'
 
+//#ifdef NONFREE
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.google.gms:google-services:4.4.4'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:3.0.6'
+    }
+}
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+//#endif
 
 android {
     namespace 'me.zhanghai.android.files'
@@ -62,6 +76,11 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+//#ifdef NONFREE
+            firebaseCrashlytics {
+                nativeSymbolUploadEnabled true
+            }
+//#endif
         }
     }
     packagingOptions {
@@ -89,7 +108,7 @@ repositories {
 }
 dependencies {
     // We need https://github.com/bitfireAT/dav4jvm/commit/c1bc14348831bcdb00f3a6eec4859b81c7dc3728
-    implementation(project(':dav4jvm')) {
+    implementation('com.github.bitfireAT:dav4jvm:02fe1a95e6') {
         exclude group: 'org.ogce', module: 'xpp3'
     }
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
@@ -193,4 +212,9 @@ dependencies {
     // Also a dependency of jCIFS-NG.
     implementation 'org.slf4j:slf4j-android:1.7.36'
 
+//#ifdef NONFREE
+    implementation platform('com.google.firebase:firebase-bom:34.11.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-crashlytics-ndk'
+//#endif
 }

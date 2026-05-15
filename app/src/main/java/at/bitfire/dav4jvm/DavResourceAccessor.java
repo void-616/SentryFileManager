@@ -23,6 +23,6 @@ public class DavResourceAccessor {
 
     public static Response followRedirects(@NonNull DavResource davResource,
             @NonNull Function0<Response> sendRequest) throws DavException, IOException {
-        return davResource.followRedirects$build(sendRequest);
+        return davResource.followRedirects$dav4jvm(sendRequest);
     }
 }
