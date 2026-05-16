@@ -10,6 +10,7 @@ import android.os.Build
 import android.webkit.WebView
 import jcifs.context.SingletonContext
 import com.sentry.filemanager.BuildConfig
+import com.sentry.filemanager.crash.CrashLogger
 import com.sentry.filemanager.coil.initializeCoil
 import com.sentry.filemanager.filejob.fileJobNotificationTemplate
 import com.sentry.filemanager.ftpserver.ftpServerServiceNotificationTemplate
@@ -30,6 +31,7 @@ import com.sentry.filemanager.provider.smb.client.Client as SmbClient
 import com.sentry.filemanager.provider.webdav.client.Client as WebDavClient
 
 val appInitializers = listOf(
+    ::initializeCrashLogger,
     ::disableHiddenApiChecks,
     ::initializeWebViewDebugging,
     ::initializeCoil,
@@ -94,4 +96,8 @@ private fun createNotificationChannels() {
             ).map { it.create(application) }
         )
     }
+}
+
+private fun initializeCrashLogger() {
+    CrashLogger.initialize(application)
 }

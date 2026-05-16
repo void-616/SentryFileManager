@@ -393,5 +393,10 @@
 
         <receiver android:name="com.sentry.filemanager.ftpserver.FtpServerReceiver" />
 
+            <activity
+            android:name="com.sentry.filemanager.crash.CrashLogActivity"
+            android:label="Crash Logs"
+            android:exported="false"
+            android:parentActivityName="com.sentry.filemanager.filelist.FileListActivity" />
     </application>
 </manifest>
