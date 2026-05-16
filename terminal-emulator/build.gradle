@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+
+android {
+    namespace "com.termux.view"
+    compileSdk 36
+    ndkVersion '28.1.13356709'
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 36
+        externalNativeBuild {
+            ndkBuild {
+                cFlags "-std=c11", "-Wall", "-Wextra", "-Werror", "-Os", "-fno-stack-protector", "-Wl,--gc-sections"
+            }
+        }
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+        }
+    }
+
+    externalNativeBuild {
+        ndkBuild {
+            path "src/main/jni/Android.mk"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation "androidx.annotation:annotation:1.9.0"
+}

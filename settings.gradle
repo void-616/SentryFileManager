@@ -1,2 +1,3 @@
 include ':app'
 include ':dav4jvm'
+include ':terminal-emulator'
