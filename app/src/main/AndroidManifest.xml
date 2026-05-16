@@ -393,7 +393,12 @@
 
         <receiver android:name="com.sentry.filemanager.ftpserver.FtpServerReceiver" />
 
-                    <activity
+                            <activity
+            android:name="com.sentry.filemanager.tabs.TabsActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
             android:name="com.sentry.filemanager.dualpane.DualPaneActivity"
             android:exported="true"
             android:configChanges="orientation|screenSize|screenLayout"

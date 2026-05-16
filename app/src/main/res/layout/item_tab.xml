@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:minWidth="80dp"
+    android:maxWidth="160dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?selectableItemBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:paddingEnd="4dp">
+
+        <TextView
+            android:id="@+id/tab_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?textAppearanceBody2"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <ImageView
+            android:id="@+id/tab_close"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/close_icon_control_normal_24dp"
+            android:scaleType="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?selectableItemBackgroundBorderless"
+            android:contentDescription="Close tab"
+            android:padding="4dp" />
+
+    </LinearLayout>
+
+    <!-- Active indicator bar at bottom -->
+    <View
+        android:id="@+id/tab_active_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?colorPrimary"
+        android:visibility="invisible" />
+
+</LinearLayout>
