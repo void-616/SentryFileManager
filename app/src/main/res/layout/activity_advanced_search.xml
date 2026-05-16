@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="16dp">
+            <TextView android:id="@+id/btn_saved_searches" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="Saved searches" android:textColor="?colorPrimary"
+                android:padding="8dp" android:clickable="true" android:focusable="true"
+                android:background="?selectableItemBackground"/>
+            <TextView android:id="@+id/btn_save_search" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Save"
+                android:textColor="?colorPrimary" android:padding="8dp"
+                android:clickable="true" android:focusable="true"
+                android:background="?selectableItemBackground"/>
+        </LinearLayout>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="FILENAME" android:textAppearance="?textAppearanceOverline"
+            android:textColor="?colorPrimary" android:layout_marginBottom="4dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Search query">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_search_query" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="8dp">
+            <CheckBox android:id="@+id/cb_regex" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1" android:text="Regex"/>
+            <CheckBox android:id="@+id/cb_case_sensitive" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1" android:text="Case sensitive"/>
+        </LinearLayout>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="SEARCH SCOPE" android:textAppearance="?textAppearanceOverline"
+            android:textColor="?colorPrimary" android:layout_marginTop="16dp" android:layout_marginBottom="4dp"/>
+
+        <RadioGroup android:id="@+id/rg_scope" android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton android:id="@+id/rb_scope_current" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="Current folder only"/>
+            <RadioButton android:id="@+id/rb_scope_subdirs" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="Current folder + subfolders" android:checked="true"/>
+            <RadioButton android:id="@+id/rb_scope_storage" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="Entire storage"/>
+        </RadioGroup>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="FILE TYPE" android:textAppearance="?textAppearanceOverline"
+            android:textColor="?colorPrimary" android:layout_marginTop="16dp" android:layout_marginBottom="4dp"/>
+
+        <Spinner android:id="@+id/spinner_file_type" android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="FILE SIZE" android:textAppearance="?textAppearanceOverline"
+            android:textColor="?colorPrimary" android:layout_marginTop="16dp" android:layout_marginBottom="4dp"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1" android:hint="Min">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/et_min_size"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text=" – " android:layout_marginHorizontal="4dp"/>
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1" android:hint="Max">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/et_max_size"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <Spinner android:id="@+id/spinner_size_unit" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
+        </LinearLayout>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="DATE MODIFIED" android:textAppearance="?textAppearanceOverline"
+            android:textColor="?colorPrimary" android:layout_marginTop="16dp" android:layout_marginBottom="4dp"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="4dp">
+            <TextView android:layout_width="60dp" android:layout_height="wrap_content" android:text="After:"/>
+            <TextView android:id="@+id/tv_date_after" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1" android:text="Any"
+                android:textColor="?colorPrimary" android:padding="8dp"
+                android:clickable="true" android:focusable="true" android:background="?selectableItemBackground"/>
+            <TextView android:id="@+id/btn_clear_date_after" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Clear" android:padding="8dp"
+                android:clickable="true" android:focusable="true" android:background="?selectableItemBackground"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
+            <TextView android:layout_width="60dp" android:layout_height="wrap_content" android:text="Before:"/>
+            <TextView android:id="@+id/tv_date_before" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1" android:text="Any"
+                android:textColor="?colorPrimary" android:padding="8dp"
+                android:clickable="true" android:focusable="true" android:background="?selectableItemBackground"/>
+            <TextView android:id="@+id/btn_clear_date_before" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Clear" android:padding="8dp"
+                android:clickable="true" android:focusable="true" android:background="?selectableItemBackground"/>
+        </LinearLayout>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="CONTENT SEARCH" android:textAppearance="?textAppearanceOverline"
+            android:textColor="?colorPrimary" android:layout_marginTop="16dp" android:layout_marginBottom="4dp"/>
+
+        <CheckBox android:id="@+id/cb_search_content" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="Search inside text files"/>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Content to find" android:visibility="gone">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/et_content_query"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="24dp" android:gravity="end">
+            <Button android:id="@+id/btn_clear_filters" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Clear"
+                style="?borderlessButtonStyle" android:layout_marginEnd="8dp"/>
+            <Button android:id="@+id/btn_search" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Search"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
