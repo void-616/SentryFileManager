@@ -393,7 +393,12 @@
 
         <receiver android:name="com.sentry.filemanager.ftpserver.FtpServerReceiver" />
 
-                                    <activity
+                                            <service
+            android:name="com.sentry.filemanager.automation.FileWatcherService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+
+        <activity
             android:name="com.sentry.filemanager.search.AdvancedSearchActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
