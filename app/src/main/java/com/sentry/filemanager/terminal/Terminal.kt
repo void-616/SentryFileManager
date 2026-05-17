@@ -1,28 +1,27 @@
 /*
- * Copyright (c) 2018 Hai Zhang <dreaming.in.code.zh@gmail.com>
- * All Rights Reserved.
+ * Copyright (c) 2026 eZee + Claude
+ * SentryOS Project
  */
-
 package com.sentry.filemanager.terminal
 
-import android.content.ComponentName
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
-import com.sentry.filemanager.app.packageManager
-import com.sentry.filemanager.util.startActivitySafe
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.commit
+import com.sentry.filemanager.R
 
 object Terminal {
     fun open(path: String, context: Context) {
-        val componentName =
-            packageManager.queryIntentActivities(Intent(Intent.ACTION_SEND).setType("*/*"), 0)
-                .firstOrNull { it.activityInfo.name.endsWith(".TermHere") }?.activityInfo
-                ?.let { ComponentName(it.packageName, it.name) }
-                ?: ComponentName("jackpal.androidterm", "jackpal.androidterm.TermHere")
-        val intent = Intent()
-            .setComponent(componentName)
-            .setAction(Intent.ACTION_SEND)
-            .putExtra(Intent.EXTRA_STREAM, Uri.parse(path))
-        context.startActivitySafe(intent)
+        val activity = context as? AppCompatActivity ?: return
+        val fragment = TerminalFragment.newInstance(path)
+        activity.supportFragmentManager.commit {
+            setCustomAnimations(
+                android.R.anim.slide_in_left,
+                android.R.anim.slide_out_right,
+                android.R.anim.slide_in_left,
+                android.R.anim.slide_out_right
+            )
+            add(android.R.id.content, fragment, "terminal")
+            addToBackStack("terminal")
+        }
     }
 }

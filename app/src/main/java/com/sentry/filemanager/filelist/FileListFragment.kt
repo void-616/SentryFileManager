@@ -528,6 +528,10 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                 copyPath()
                 true
             }
+                        R.id.action_advanced_search -> {
+                openAdvancedSearch()
+                true
+            }
             R.id.action_open_in_terminal -> {
                 openInTerminal()
                 true
@@ -762,6 +766,12 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         } else {
             // TODO
         }
+    }
+
+
+    private fun openAdvancedSearch() {
+        val intent = com.sentry.filemanager.search.AdvancedSearchActivity.createIntent(requireContext())
+        startActivity(intent)
     }
 
     override fun navigateTo(path: Path) {
