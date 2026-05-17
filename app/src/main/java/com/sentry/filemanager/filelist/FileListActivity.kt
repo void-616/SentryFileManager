@@ -14,6 +14,8 @@ import androidx.activity.result.contract.ActivityResultContract
 import androidx.fragment.app.commit
 import java8.nio.file.Path
 import com.sentry.filemanager.app.AppActivity
+import com.sentry.filemanager.dualpane.DualPaneManager
+import com.sentry.filemanager.dualpane.DualPaneActivity
 import com.sentry.filemanager.file.MimeType
 import com.sentry.filemanager.util.createIntent
 import com.sentry.filemanager.util.extraPath
@@ -25,6 +27,12 @@ class FileListActivity : AppActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Redirect to DualPaneActivity if enabled and screen is wide enough
+        if (savedInstanceState == null && DualPaneManager.isDualPaneEnabled(this)) {
+            startActivity(DualPaneActivity.createIntent(this, intent.extraPath))
+            finish()
+            return
+        }
         // Calls ensureSubDecor().
         findViewById<View>(android.R.id.content)
         if (savedInstanceState == null) {
