@@ -108,4 +108,48 @@
             android:title="@string/settings_read_remote_files_for_thumbnail_title"
             android:defaultValue="@bool/pref_default_value_read_remote_files_for_thumbnail" />
     </PreferenceCategory>
+
+    <PreferenceCategory android:title="SentryFM — Display">
+        <SwitchPreferenceCompat
+            android:key="sentry_dual_pane_enabled"
+            android:title="Dual pane"
+            android:summary="Show two panels side by side"
+            android:defaultValue="true" />
+        <SwitchPreferenceCompat
+            android:key="sentry_dual_pane_portrait"
+            android:title="Dual pane in portrait"
+            android:summary="Enable dual pane in portrait mode"
+            android:defaultValue="false"
+            android:dependency="sentry_dual_pane_enabled" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="SentryFM — Features">
+        <Preference
+            android:key="sentry_automation_rules"
+            android:title="Automation rules"
+            android:summary="Manage file automation rules" />
+        <SwitchPreferenceCompat
+            android:key="sentry_automation_tasker_bridge"
+            android:title="Tasker bridge"
+            android:summary="Broadcast intents to Tasker when rules trigger"
+            android:defaultValue="false" />
+        <Preference
+            android:key="sentry_plugins"
+            android:title="Plugins"
+            android:summary="Manage installed plugins" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="SentryFM — Advanced">
+        <Preference
+            android:key="sentry_crash_logs"
+            android:title="Crash logs"
+            android:summary="View and export crash reports" />
+        <ListPreference
+            android:key="sentry_crash_log_retention"
+            android:title="Log retention"
+            android:summary="Auto-delete logs older than"
+            android:entries="@array/sentry_log_retention_entries"
+            android:entryValues="@array/sentry_log_retention_values"
+            android:defaultValue="7" />
+    </PreferenceCategory>
 </PreferenceScreen>

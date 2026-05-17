@@ -414,6 +414,16 @@
             android:configChanges="orientation|screenSize|screenLayout"
             android:windowSoftInputMode="adjustResize" />
 
+                <activity
+            android:name="com.sentry.filemanager.automation.AutomationRulesActivity"
+            android:exported="false"
+            android:label="Automation Rules" />
+
+        <activity
+            android:name="com.sentry.filemanager.plugin.PluginsActivity"
+            android:exported="false"
+            android:label="Plugins" />
+
         <activity
             android:name="com.sentry.filemanager.crash.CrashLogActivity"
             android:label="Crash Logs"
