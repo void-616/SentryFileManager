@@ -141,6 +141,11 @@
 
     <PreferenceCategory android:title="SentryFM — Advanced">
         <Preference
+            android:key="sentry_cache_cleaner"
+            android:title="Cache cleaner"
+            android:summary="Auto-clean old files from watched folders" />
+
+        <Preference
             android:key="sentry_crash_logs"
             android:title="Crash logs"
             android:summary="View and export crash reports" />

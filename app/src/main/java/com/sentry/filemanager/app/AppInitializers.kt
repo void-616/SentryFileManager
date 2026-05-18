@@ -11,6 +11,7 @@ import android.webkit.WebView
 import jcifs.context.SingletonContext
 import com.sentry.filemanager.BuildConfig
 import com.sentry.filemanager.crash.CrashLogger
+import com.sentry.filemanager.cleaner.CacheCleanerManager
 import com.sentry.filemanager.coil.initializeCoil
 import com.sentry.filemanager.filejob.fileJobNotificationTemplate
 import com.sentry.filemanager.ftpserver.ftpServerServiceNotificationTemplate
@@ -32,6 +33,7 @@ import com.sentry.filemanager.provider.webdav.client.Client as WebDavClient
 
 val appInitializers = listOf(
     ::initializeCrashLogger,
+    ::initializeCacheCleaner,
     ::disableHiddenApiChecks,
     ::initializeWebViewDebugging,
     ::initializeCoil,
@@ -100,4 +102,11 @@ private fun createNotificationChannels() {
 
 private fun initializeCrashLogger() {
     CrashLogger.initialize(application)
+}
+
+private fun initializeCacheCleaner() {
+    val result = CacheCleanerManager.cleanAll(application)
+    if (result.filesDeleted > 0) {
+        android.util.Log.i("CacheCleaner", "Cleaned ${result.filesDeleted} file(s), freed ${CacheCleanerManager.formatSize(result.bytesFreed)}")
+    }
 }

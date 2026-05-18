@@ -424,6 +424,11 @@
             android:exported="false"
             android:label="Plugins" />
 
+                <activity
+            android:name="com.sentry.filemanager.cleaner.CacheCleanerActivity"
+            android:exported="false"
+            android:label="Cache Cleaner" />
+
         <activity
             android:name="com.sentry.filemanager.crash.CrashLogActivity"
             android:label="Crash Logs"

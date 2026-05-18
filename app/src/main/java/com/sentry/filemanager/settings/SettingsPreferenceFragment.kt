@@ -30,6 +30,12 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
 
         // ── SentryFM preference handlers ─────────────────────────────────────
 
+        preferenceScreen.findPreference<androidx.preference.Preference>("sentry_cache_cleaner")
+            ?.setOnPreferenceClickListener {
+                startActivity(android.content.Intent(requireContext(), com.sentry.filemanager.cleaner.CacheCleanerActivity::class.java))
+                true
+            }
+
         preferenceScreen.findPreference<androidx.preference.Preference>("sentry_crash_logs")
             ?.setOnPreferenceClickListener {
                 startActivity(Intent(requireContext(), CrashLogActivity::class.java))
