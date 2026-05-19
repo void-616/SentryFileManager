@@ -30,13 +30,13 @@ class AutomationRulesActivity : AppCompatActivity() {
         adapter = RulesAdapter(
             onToggle = { rule -> AutomationRuleStore.setRuleEnabled(this, rule.id, !rule.enabled); loadRules() },
             onDelete = { rule -> confirmDelete(rule) },
-            onRun = { rule -> runManual(rule) }
+            onRun = { rule -> startActivity(EditRuleActivity.createIntent(this, rule)) }
         )
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = adapter
 
         findViewById<View>(R.id.btn_add_rule).setOnClickListener {
-            Toast.makeText(this, "Rule editor coming in next update", Toast.LENGTH_SHORT).show()
+            startActivity(EditRuleActivity.createIntent(this))
         }
 
         loadRules()

@@ -414,7 +414,13 @@
             android:configChanges="orientation|screenSize|screenLayout"
             android:windowSoftInputMode="adjustResize" />
 
-                <activity
+                        <activity
+            android:name="com.sentry.filemanager.automation.EditRuleActivity"
+            android:exported="false"
+            android:label="Edit Rule"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
             android:name="com.sentry.filemanager.automation.AutomationRulesActivity"
             android:exported="false"
             android:label="Automation Rules" />

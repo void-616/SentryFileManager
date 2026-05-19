@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Name -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="RULE NAME" android:textAppearance="?textAppearanceOverline"
+            android:textColor="?colorPrimary" android:layout_marginBottom="4dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Rule name">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_rule_name" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Trigger -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="TRIGGER" android:textAppearance="?textAppearanceOverline"
+            android:textColor="?colorPrimary" android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"/>
+
+        <Spinner android:id="@+id/spinner_trigger" android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Watch path -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="WATCH FOLDER" android:textAppearance="?textAppearanceOverline"
+            android:textColor="?colorPrimary" android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Folder path to watch (e.g. /sdcard/Download)">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_watch_path" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Conditions -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginTop="16dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="CONDITIONS (optional)"
+                android:textAppearance="?textAppearanceOverline" android:textColor="?colorPrimary"/>
+            <TextView android:id="@+id/btn_add_condition" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="+ Add"
+                android:textColor="?colorPrimary" android:padding="4dp"
+                android:clickable="true" android:focusable="true"
+                android:background="?selectableItemBackground"/>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_conditions" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:nestedScrollingEnabled="false"/>
+
+        <!-- Actions -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginTop="16dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="ACTIONS"
+                android:textAppearance="?textAppearanceOverline" android:textColor="?colorPrimary"/>
+            <TextView android:id="@+id/btn_add_action" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="+ Add"
+                android:textColor="?colorPrimary" android:padding="4dp"
+                android:clickable="true" android:focusable="true"
+                android:background="?selectableItemBackground"/>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_actions" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:nestedScrollingEnabled="false"/>
+
+        <!-- Save -->
+        <Button android:id="@+id/btn_save_rule" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="Save Rule"
+            android:layout_marginTop="24dp"/>
+
+    </LinearLayout>
+</ScrollView>
