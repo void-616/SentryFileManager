@@ -14,4 +14,7 @@
     <item
         android:id="@+id/action_open_in_new_task"
         android:title="@string/file_list_breadcrumb_action_open_in_new_task" />
+    <item
+        android:id="@+id/action_add_to_cleaner"
+        android:title="Add to cache cleaner" />
 </menu>

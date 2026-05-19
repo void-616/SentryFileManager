@@ -335,6 +335,7 @@ class FileListAdapter(
         menu.findItem(R.id.action_extract).isVisible = file.isArchiveFile
         menu.findItem(R.id.action_archive).isVisible = !isArchivePath
         menu.findItem(R.id.action_add_bookmark).isVisible = isDirectory
+            menu.findItem(R.id.action_add_to_cleaner).isVisible = isDirectory
         holder.popupMenu.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.action_open_with -> {
@@ -385,7 +386,19 @@ class FileListAdapter(
                     listener.showPropertiesDialog(file)
                     true
                 }
-                else -> false
+                R.id.action_add_to_cleaner -> {
+                    com.sentry.filemanager.cleaner.CacheCleanerManager.addFolder(
+                        com.sentry.filemanager.app.application,
+                        file.path.toFile().absolutePath
+                    )
+                    android.widget.Toast.makeText(
+                        com.sentry.filemanager.app.application,
+                        "Added to cache cleaner",
+                        android.widget.Toast.LENGTH_SHORT
+                    ).show()
+                    true
+                }
+                                else -> false
             }
         }
     }

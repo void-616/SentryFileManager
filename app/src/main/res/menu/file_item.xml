@@ -52,6 +52,9 @@
         android:title="@string/file_item_action_create_shortcut" />
 
     <item
+        android:id="@+id/action_add_to_cleaner"
+        android:title="Add to cache cleaner" />
+    <item
         android:id="@+id/action_properties"
         android:title="@string/file_item_action_properties" />
 </menu>
