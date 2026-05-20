@@ -414,7 +414,12 @@
             android:configChanges="orientation|screenSize|screenLayout"
             android:windowSoftInputMode="adjustResize" />
 
-                        <activity
+                                <activity
+            android:name="com.sentry.filemanager.automation.RuleHistoryActivity"
+            android:exported="false"
+            android:label="Run History" />
+
+        <activity
             android:name="com.sentry.filemanager.automation.EditRuleActivity"
             android:exported="false"
             android:label="Edit Rule"

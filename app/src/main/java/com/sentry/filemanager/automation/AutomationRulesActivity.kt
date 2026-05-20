@@ -30,7 +30,7 @@ class AutomationRulesActivity : AppCompatActivity() {
         adapter = RulesAdapter(
             onToggle = { rule -> AutomationRuleStore.setRuleEnabled(this, rule.id, !rule.enabled); loadRules() },
             onDelete = { rule -> confirmDelete(rule) },
-            onRun = { rule -> startActivity(EditRuleActivity.createIntent(this, rule)) }
+            onRun = { rule -> startActivity(RuleHistoryActivity.createIntent(this, rule.id, rule.name)) }
         )
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = adapter
