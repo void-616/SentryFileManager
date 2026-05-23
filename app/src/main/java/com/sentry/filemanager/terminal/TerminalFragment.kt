@@ -51,6 +51,7 @@ class TerminalFragment : Fragment() {
         tvTitle = view.findViewById(R.id.terminal_title)
 
         view.findViewById<View>(R.id.btn_terminal_paste).setOnClickListener { pasteFromClipboard() }
+        setupKeyBar(view)
         view.findViewById<View>(R.id.btn_terminal_close).setOnClickListener {
             parentFragmentManager.popBackStack()
         }
@@ -100,6 +101,48 @@ class TerminalFragment : Fragment() {
             override fun logStackTraceWithMessage(tag: String?, message: String?, e: Exception?) {}
             override fun logStackTrace(tag: String?, e: Exception?) {}
         })
+    }
+
+    private fun setupKeyBar(view: android.view.View) {
+        // ESC
+        view.findViewById<android.view.View>(R.id.key_esc).setOnClickListener {
+            terminalSession?.write("")
+        }
+        // TAB
+        view.findViewById<android.view.View>(R.id.key_tab).setOnClickListener {
+            terminalSession?.write("	")
+        }
+        // CTRL toggle — sends next char as ctrl combo
+        view.findViewById<android.view.View>(R.id.key_ctrl).setOnClickListener {
+            terminalSession?.write("") // Ctrl+C as default, will improve later
+        }
+        // Arrows
+        view.findViewById<android.view.View>(R.id.key_arrow_up).setOnClickListener {
+            terminalSession?.write("[A")
+        }
+        view.findViewById<android.view.View>(R.id.key_arrow_down).setOnClickListener {
+            terminalSession?.write("[B")
+        }
+        view.findViewById<android.view.View>(R.id.key_arrow_right).setOnClickListener {
+            terminalSession?.write("[C")
+        }
+        view.findViewById<android.view.View>(R.id.key_arrow_left).setOnClickListener {
+            terminalSession?.write("[D")
+        }
+        // Home / End
+        view.findViewById<android.view.View>(R.id.key_home).setOnClickListener {
+            terminalSession?.write("[H")
+        }
+        view.findViewById<android.view.View>(R.id.key_end).setOnClickListener {
+            terminalSession?.write("[F")
+        }
+        // Page Up / Down
+        view.findViewById<android.view.View>(R.id.key_pgup).setOnClickListener {
+            terminalSession?.write("[5~")
+        }
+        view.findViewById<android.view.View>(R.id.key_pgdn).setOnClickListener {
+            terminalSession?.write("[6~")
+        }
     }
 
     private fun getShellPath(): String {
