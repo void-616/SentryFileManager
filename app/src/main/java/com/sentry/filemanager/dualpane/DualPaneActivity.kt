@@ -19,6 +19,8 @@ import com.sentry.filemanager.filelist.FileListFragment
 import com.sentry.filemanager.util.createIntent
 import com.sentry.filemanager.util.extraPath
 import com.sentry.filemanager.util.putArgs
+import android.view.DragEvent
+import androidx.appcompat.app.AlertDialog
 
 class DualPaneActivity : AppActivity() {
 
@@ -32,6 +34,52 @@ class DualPaneActivity : AppActivity() {
 
     // Which pane is currently active (receives keyboard shortcuts etc.)
     private var activePane: Int = 1
+
+
+    private fun setupCrossPaneDrag() {
+        pane2Container.setOnDragListener { _, event ->
+            when (event.action) {
+                DragEvent.ACTION_DRAG_ENTERED -> { pane2Container.setBackgroundColor(0x331A73E8.toInt()); true }
+                DragEvent.ACTION_DRAG_EXITED -> { updateActivePaneIndicator(); true }
+                DragEvent.ACTION_DROP -> { updateActivePaneIndicator(); showCopyMoveDialog(fromPane = 1); true }
+                DragEvent.ACTION_DRAG_ENDED -> { updateActivePaneIndicator(); true }
+                else -> true
+            }
+        }
+        pane1Container.setOnDragListener { _, event ->
+            when (event.action) {
+                DragEvent.ACTION_DRAG_ENTERED -> { pane1Container.setBackgroundColor(0x331A73E8.toInt()); true }
+                DragEvent.ACTION_DRAG_EXITED -> { updateActivePaneIndicator(); true }
+                DragEvent.ACTION_DROP -> { updateActivePaneIndicator(); showCopyMoveDialog(fromPane = 2); true }
+                DragEvent.ACTION_DRAG_ENDED -> { updateActivePaneIndicator(); true }
+                else -> true
+            }
+        }
+    }
+
+    fun showCopyMoveDialog(fromPane: Int) {
+        val sourceFragment = if (fromPane == 1) pane1Fragment else pane2Fragment
+        val targetFragment = if (fromPane == 1) pane2Fragment else pane1Fragment
+        val pasteState = sourceFragment.getDualPanePasteState()
+        if (pasteState.files.isEmpty()) {
+            android.widget.Toast.makeText(this, "Select files first then drag", android.widget.Toast.LENGTH_SHORT).show()
+            return
+        }
+        val targetPath = targetFragment.getDualPaneCurrentPath() ?: return
+        androidx.appcompat.app.AlertDialog.Builder(this)
+            .setTitle("Move or copy?")
+            .setMessage("${pasteState.files.size} item(s) to ${targetPath.toFile().name}")
+            .setPositiveButton("Move") { _, _ ->
+                sourceFragment.addToDualPanePasteState(false)
+                targetFragment.pasteFilesTo(targetPath)
+            }
+            .setNegativeButton("Copy") { _, _ ->
+                sourceFragment.addToDualPanePasteState(true)
+                targetFragment.pasteFilesTo(targetPath)
+            }
+            .setNeutralButton("Cancel", null)
+            .show()
+    }
 
     companion object {
         private const val PANE1_TAG = "dual_pane_1"
@@ -75,6 +123,7 @@ class DualPaneActivity : AppActivity() {
         pane2Container.setOnClickListener { setActivePane(2) }
 
         updateActivePaneIndicator()
+        setupCrossPaneDrag()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

@@ -1747,4 +1747,11 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
             }
         }
     }
+
+    // ── DualPane public API ───────────────────────────────────────────────────
+    fun getDualPanePasteState() = viewModel.pasteState
+    fun getDualPaneCurrentPath(): java8.nio.file.Path? = viewModel.currentPath
+    fun addToDualPanePasteState(copy: Boolean) = viewModel.addToPasteState(copy, viewModel.pasteState.files)
+    fun pasteFilesTo(targetDirectory: java8.nio.file.Path) = pasteFiles(targetDirectory)
+
 }
