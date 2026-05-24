@@ -769,9 +769,23 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
     }
 
 
+    private val advancedSearchLauncher = registerForActivityResult(
+        androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == android.app.Activity.RESULT_OK) {
+            val filter = result.data?.getParcelableExtra<com.sentry.filemanager.search.SearchFilter>(
+                com.sentry.filemanager.search.AdvancedSearchActivity.EXTRA_FILTER
+            ) ?: return@registerForActivityResult
+            val startPath = viewModel.currentPath.toFile().absolutePath
+            startActivity(com.sentry.filemanager.search.SearchResultsActivity.createIntent(
+                requireContext(), filter, startPath
+            ))
+        }
+    }
+
     private fun openAdvancedSearch() {
         val intent = com.sentry.filemanager.search.AdvancedSearchActivity.createIntent(requireContext())
-        startActivity(intent)
+        advancedSearchLauncher.launch(intent)
     }
 
     override fun navigateTo(path: Path) {

@@ -393,6 +393,11 @@
             android:exported="false"
             android:foregroundServiceType="dataSync" />
 
+                <activity
+            android:name="com.sentry.filemanager.search.SearchResultsActivity"
+            android:exported="false"
+            android:label="Search Results" />
+
         <activity
             android:name="com.sentry.filemanager.search.AdvancedSearchActivity"
             android:exported="false"
