@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2026 eZee + Claude
+ * Copyright (c) 2026 Sentry Project
  * SentryOS Project
  */
 
