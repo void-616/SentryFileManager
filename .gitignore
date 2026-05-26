@@ -11,3 +11,6 @@
 *.bak
 build_log.txt
 build/
+signing.properties
+*.keystore
+*.jks
