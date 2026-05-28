@@ -55,3 +55,16 @@
 
 # SMBJ-RPC
 -dontwarn java.rmi.UnmarshalException
+
+# WorkManager — keep Room database implementation
+-keep class androidx.work.impl.** { *; }
+-keep class * extends androidx.work.Worker
+-keep class * extends androidx.work.ListenableWorker {
+    public <init>(android.content.Context, androidx.work.WorkerParameters);
+}
+-keepclassmembers class * extends androidx.room.RoomDatabase {
+    public static ** INSTANCE;
+    public static ** create(...);
+}
+-keep class * extends androidx.room.RoomDatabase
+-dontwarn androidx.room.**
