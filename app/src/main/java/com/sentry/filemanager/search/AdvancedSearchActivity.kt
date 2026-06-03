@@ -14,11 +14,12 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.sentry.filemanager.app.AppActivity
 import com.sentry.filemanager.R
 import java.text.SimpleDateFormat
 import java.util.*
 
-class AdvancedSearchActivity : AppCompatActivity() {
+class AdvancedSearchActivity : AppActivity() {
 
     private lateinit var etQuery: EditText
     private lateinit var cbRegex: CheckBox

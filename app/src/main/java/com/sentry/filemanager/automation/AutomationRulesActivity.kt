@@ -9,11 +9,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.sentry.filemanager.app.AppActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sentry.filemanager.R
 
-class AutomationRulesActivity : AppCompatActivity() {
+class AutomationRulesActivity : AppActivity() {
 
     private lateinit var recycler: RecyclerView
     private lateinit var emptyView: TextView

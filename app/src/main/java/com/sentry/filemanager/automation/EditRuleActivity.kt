@@ -9,11 +9,12 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.sentry.filemanager.app.AppActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sentry.filemanager.R
 
-class EditRuleActivity : AppCompatActivity() {
+class EditRuleActivity : AppActivity() {
 
     private lateinit var etName: EditText
     private lateinit var spinnerTrigger: Spinner

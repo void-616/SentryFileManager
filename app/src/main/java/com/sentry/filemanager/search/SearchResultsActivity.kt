@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.sentry.filemanager.app.AppActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sentry.filemanager.R
@@ -16,7 +17,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.Executors
 
-class SearchResultsActivity : AppCompatActivity() {
+class SearchResultsActivity : AppActivity() {
 
     private lateinit var recycler: RecyclerView
     private lateinit var emptyView: TextView

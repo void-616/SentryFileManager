@@ -12,13 +12,14 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.sentry.filemanager.app.AppActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sentry.filemanager.R
 import java.io.File
 import java.io.FileOutputStream
 
-class PluginsActivity : AppCompatActivity() {
+class PluginsActivity : AppActivity() {
 
     private lateinit var recycler: RecyclerView
     private lateinit var emptyView: TextView

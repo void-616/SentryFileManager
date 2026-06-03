@@ -16,11 +16,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.sentry.filemanager.app.AppActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sentry.filemanager.R
 
-class CrashLogActivity : AppCompatActivity() {
+class CrashLogActivity : AppActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var emptyView: TextView
