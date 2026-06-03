@@ -20,7 +20,7 @@ android {
         // Not supporting foreground service timeout yet.
         //noinspection OldTargetApi
         targetSdk 34
-        versionCode 1
+        versionCode 37
         versionName '2.0.0'
         resValue 'string', 'app_version', '2.0.0 (1)'
         buildConfigField 'String', 'FILE_PROVIDIER_AUTHORITY', 'APPLICATION_ID + ".file_provider"'
@@ -55,6 +55,14 @@ android {
         // For "Invalid package reference in library; not included in Android: javax.security.sasl.
         // Referenced from org.apache.mina.proxy.ProxyAuthException."
         warning 'InvalidPackage', 'MissingTranslation'
+    }
+    signingConfigs {
+        release {
+            storeFile file("../sentry-release.keystore")
+            storePassword "sentryfiles2026"
+            keyAlias "sentry"
+            keyPassword "sentryfiles2026"
+        }
     }
     buildTypes {
         release {

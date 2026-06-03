@@ -124,6 +124,8 @@ class LocalLinuxFileSystemProvider(provider: LinuxFileSystemProvider) : FileSyst
             Syscall.opendir(directoryBytes)
         } catch (e: SyscallException) {
             throw e.toFileSystemException(directoryBytes.toString())
+        } catch (e: Exception) {
+            throw java.io.IOException("opendir failed: ${directoryBytes}", e)
         }
         return LinuxDirectoryStream(directory, dir, filter)
     }

@@ -15,7 +15,7 @@ Starting a Gradle Daemon, 1 incompatible and 1 stopped Daemons could not be reus
 > Task :app:buildCMakeRelWithDebInfo[x86]
 > Task :app:configureCMakeRelWithDebInfo[x86_64]
 > Task :app:buildCMakeRelWithDebInfo[x86_64]
-> Task :app:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :app:mergeReleaseJniLibFolders
 > Task :terminal-emulator:preBuild UP-TO-DATE
 > Task :terminal-emulator:preReleaseBuild UP-TO-DATE
 > Task :terminal-emulator:configureNdkBuildRelease[arm64-v8a]
@@ -29,15 +29,11 @@ Starting a Gradle Daemon, 1 incompatible and 1 stopped Daemons could not be reus
 > Task :terminal-emulator:mergeReleaseJniLibFolders UP-TO-DATE
 > Task :terminal-emulator:mergeReleaseNativeLibs UP-TO-DATE
 > Task :terminal-emulator:copyReleaseJniLibsProjectOnly UP-TO-DATE
-> Task :app:mergeReleaseNativeLibs UP-TO-DATE
-> Task :app:stripReleaseDebugSymbols UP-TO-DATE
-> Task :app:extractReleaseNativeSymbolTables UP-TO-DATE
-> Task :app:mergeReleaseNativeDebugMetadata UP-TO-DATE
 > Task :terminal-emulator:prepareReleaseArtProfile UP-TO-DATE
-> Task :app:mergeReleaseArtProfile UP-TO-DATE
-> Task :app:expandReleaseL8ArtProfileWildcards UP-TO-DATE
 > Task :terminal-emulator:generateReleaseResources UP-TO-DATE
+> Task :app:mergeReleaseArtProfile
 > Task :terminal-emulator:packageReleaseResources UP-TO-DATE
+> Task :app:mergeReleaseNativeLibs
 > Task :terminal-emulator:processReleaseNavigationResources UP-TO-DATE
 > Task :terminal-emulator:parseReleaseLocalResources UP-TO-DATE
 > Task :terminal-emulator:generateReleaseRFile UP-TO-DATE
@@ -45,62 +41,55 @@ Starting a Gradle Daemon, 1 incompatible and 1 stopped Daemons could not be reus
 > Task :terminal-emulator:javaPreCompileRelease UP-TO-DATE
 > Task :terminal-emulator:compileReleaseJavaWithJavac UP-TO-DATE
 > Task :terminal-emulator:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :app:expandReleaseL8ArtProfileWildcards
 > Task :terminal-emulator:exportReleaseConsumerProguardFiles UP-TO-DATE
-> Task :app:checkReleaseDuplicateClasses UP-TO-DATE
-> Task :app:compileReleaseAidl UP-TO-DATE
-> Task :app:dataBindingMergeDependencyArtifactsRelease UP-TO-DATE
-> Task :app:generateReleaseResValues UP-TO-DATE
-> Task :app:extractReleaseSupportedLocales UP-TO-DATE
-> Task :app:mapReleaseSourceSetPaths UP-TO-DATE
+> Task :app:stripReleaseDebugSymbols
+> Task :app:checkReleaseDuplicateClasses
+> Task :app:extractReleaseNativeSymbolTables
+> Task :app:mergeReleaseNativeDebugMetadata
+> Task :app:dataBindingMergeDependencyArtifactsRelease
+> Task :app:generateReleaseResValues
+> Task :app:extractReleaseSupportedLocales
+> Task :app:mapReleaseSourceSetPaths
 > Task :terminal-emulator:extractReleaseSupportedLocales UP-TO-DATE
-> Task :app:generateReleaseLocaleConfig UP-TO-DATE
-> Task :app:generateReleaseResources UP-TO-DATE
-> Task :app:mergeReleaseResources UP-TO-DATE
-> Task :app:packageReleaseResources UP-TO-DATE
-> Task :app:processReleaseNavigationResources UP-TO-DATE
-> Task :app:parseReleaseLocalResources UP-TO-DATE
-> Task :app:dataBindingGenBaseClassesRelease UP-TO-DATE
-> Task :app:generateReleaseBuildConfig UP-TO-DATE
-> Task :app:generateReleaseRFile UP-TO-DATE
+> Task :app:generateReleaseResources
+> Task :app:generateReleaseLocaleConfig
+> Task :app:processReleaseNavigationResources
+> Task :app:compileReleaseAidl
+> Task :app:mergeReleaseResources
+> Task :app:packageReleaseResources
+> Task :app:generateReleaseBuildConfig
 > Task :terminal-emulator:bundleLibCompileToJarRelease UP-TO-DATE
-> Task :app:compileReleaseKotlin UP-TO-DATE
-> Task :app:javaPreCompileRelease UP-TO-DATE
-> Task :app:compileReleaseJavaWithJavac UP-TO-DATE
 > Task :terminal-emulator:writeReleaseAarMetadata UP-TO-DATE
-> Task :app:checkReleaseAarMetadata UP-TO-DATE
-> Task :app:compileReleaseNavigationResources UP-TO-DATE
-> Task :app:createReleaseCompatibleScreenManifests UP-TO-DATE
-> Task :app:extractDeepLinksRelease UP-TO-DATE
+> Task :app:javaPreCompileRelease
+> Task :app:compileReleaseNavigationResources
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:extractDeepLinksRelease
+> Task :app:checkReleaseAarMetadata
 > Task :terminal-emulator:extractDeepLinksRelease UP-TO-DATE
 > Task :terminal-emulator:processReleaseManifest UP-TO-DATE
-> Task :app:processReleaseMainManifest UP-TO-DATE
-> Task :app:processReleaseManifest UP-TO-DATE
-> Task :app:processReleaseManifestForPackage UP-TO-DATE
+> Task :app:parseReleaseLocalResources
+> Task :app:processReleaseMainManifest
+> Task :app:dataBindingGenBaseClassesRelease
+> Task :app:generateReleaseRFile
+> Task :app:processReleaseManifest
 > Task :terminal-emulator:mapReleaseSourceSetPaths UP-TO-DATE
 > Task :terminal-emulator:compileReleaseLibraryResources UP-TO-DATE
-> Task :app:processReleaseResources UP-TO-DATE
 > Task :terminal-emulator:bundleLibRuntimeToJarRelease UP-TO-DATE
-> Task :app:expandReleaseArtProfileWildcards UP-TO-DATE
-> Task :app:extractProguardFiles UP-TO-DATE
-> Task :app:mergeReleaseGeneratedProguardFiles UP-TO-DATE
-> Task :app:processReleaseJavaRes UP-TO-DATE
+> Task :app:extractProguardFiles
 > Task :terminal-emulator:processReleaseJavaRes NO-SOURCE
-> Task :app:mergeReleaseJavaResource UP-TO-DATE
 > Task :app:mergeReleaseStartupProfile UP-TO-DATE
-> Task :app:minifyReleaseWithR8 UP-TO-DATE
-> Task :app:l8DexDesugarLibRelease UP-TO-DATE
-> Task :app:compileReleaseArtProfile UP-TO-DATE
 > Task :app:generateReleaseAssets UP-TO-DATE
 > Task :terminal-emulator:generateReleaseAssets UP-TO-DATE
 > Task :terminal-emulator:mergeReleaseAssets UP-TO-DATE
-> Task :app:mergeReleaseAssets UP-TO-DATE
-> Task :app:compressReleaseAssets UP-TO-DATE
-> Task :app:extractReleaseVersionControlInfo UP-TO-DATE
+> Task :app:mergeReleaseAssets
+> Task :app:processReleaseManifestForPackage
+> Task :app:compressReleaseAssets
+> Task :app:extractReleaseVersionControlInfo
 > Task :terminal-emulator:createFullJarRelease UP-TO-DATE
 > Task :terminal-emulator:extractProguardFiles UP-TO-DATE
 > Task :terminal-emulator:generateReleaseLintModel UP-TO-DATE
 > Task :terminal-emulator:prepareLintJarForPublish UP-TO-DATE
-> Task :app:generateReleaseLintVitalReportModel UP-TO-DATE
 > Task :terminal-emulator:checkReleaseAarMetadata UP-TO-DATE
 > Task :terminal-emulator:stripReleaseDebugSymbols UP-TO-DATE
 > Task :terminal-emulator:copyReleaseJniLibsProjectAndLocalJars UP-TO-DATE
@@ -112,24 +101,464 @@ Starting a Gradle Daemon, 1 incompatible and 1 stopped Daemons could not be reus
 > Task :terminal-emulator:bundleReleaseLocalLintAar UP-TO-DATE
 > Task :terminal-emulator:lintVitalAnalyzeRelease UP-TO-DATE
 > Task :terminal-emulator:writeReleaseLintModelMetadata UP-TO-DATE
-> Task :app:lintVitalAnalyzeRelease UP-TO-DATE
 > Task :terminal-emulator:generateReleaseLintVitalModel UP-TO-DATE
-> Task :app:lintVitalReportRelease UP-TO-DATE
-> Task :app:lintVitalRelease
-> Task :app:convertShrunkResourcesToBinaryRelease UP-TO-DATE
-> Task :app:optimizeReleaseResources UP-TO-DATE
-> Task :app:collectReleaseDependencies UP-TO-DATE
-> Task :app:sdkReleaseDependencyData UP-TO-DATE
-> Task :app:validateSigningRelease UP-TO-DATE
-> Task :app:writeReleaseAppMetadata UP-TO-DATE
-> Task :app:writeReleaseSigningConfigVersions UP-TO-DATE
-> Task :app:packageRelease UP-TO-DATE
-> Task :app:createReleaseApkListingFileRedirect UP-TO-DATE
-> Task :app:assembleRelease UP-TO-DATE
+> Task :app:collectReleaseDependencies
+> Task :app:sdkReleaseDependencyData
+> Task :app:validateSigningRelease
+> Task :app:writeReleaseAppMetadata
+> Task :app:writeReleaseSigningConfigVersions
 > Task :terminal-emulator:bundleReleaseAar UP-TO-DATE
 > Task :terminal-emulator:mergeReleaseResources UP-TO-DATE
 > Task :terminal-emulator:verifyReleaseResources UP-TO-DATE
 > Task :terminal-emulator:assembleRelease UP-TO-DATE
+> Task :app:processReleaseResources
+> Task :app:compileReleaseKotlin
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/about/AboutFragment.kt:33:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/about/AboutFragment.kt:34:15 'fun onActivityCreated(p0: Bundle?): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/app/AppInitializers.kt:8:8 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/app/AppInitializers.kt:86:5 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/app/AppInitializers.kt:86:15 'static field THREAD_POOL_EXECUTOR: Executor!' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/automation/EditRuleActivity.kt:47:31 'fun <T : Parcelable!> getParcelableExtra(p0: String!): T?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/coil/PathAttributesFetcher.kt:79:19 No cast needed.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/coil/PathAttributesFetcher.kt:80:20 No cast needed.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/compat/ParcelCompat.kt:25:16 'fun <T : Parcelable!> readParcelableList(p0: (Mutable)List<T!>, p1: ClassLoader?): (Mutable)List<T!>' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/compat/ParcelCompat.kt:35:27 'fun <T : Parcelable!> readParcelable(p0: ClassLoader?): T?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/compat/ParcelCompat.kt:65:47 'fun readSerializable(): Serializable?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/compat/ViewCompat.kt:18:42 No cast needed.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/dualpane/DualPaneActivity.kt:42:97 Redundant call of conversion method.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/dualpane/DualPaneActivity.kt:51:97 Redundant call of conversion method.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/file/InstantExtensions.kt:10:8 'class Time : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileaction/ArchivePasswordDialogFragment.kt:85:70 'static field SOFT_INPUT_ADJUST_RESIZE: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filejob/FileJobConflictDialogFragment.kt:144:70 'static field SOFT_INPUT_ADJUST_RESIZE: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filejob/FileJobConflictDialogFragment.kt:181:64 Unnecessary non-null assertion (!!) on a non-null receiver of type 'String'.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filejob/FileJobConflictDialogFragment.kt:199:46 Unnecessary non-null assertion (!!) on a non-null receiver of type 'Int'.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filejob/FileJobErrorDialogFragment.kt:79:36 'fun launchWhenStarted(block: suspend CoroutineScope.() -> Unit): Job' is deprecated. launchWhenStarted is deprecated as it can lead to wasted resources in some cases. Replace with suspending repeatOnLifecycle to run the block whenever the Lifecycle state is at least Lifecycle.State.STARTED.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filejob/FileJobs.kt:1058:17 'when' is exhaustive so 'else' is redundant here.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filejob/FileJobs.kt:1697:17 'when' is exhaustive so 'else' is redundant here.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filejob/FileJobs.kt:1842:17 'when' is exhaustive so 'else' is redundant here.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filejob/FileJobs.kt:1988:17 'when' is exhaustive so 'else' is redundant here.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filejob/FileJobs.kt:2108:17 'when' is exhaustive so 'else' is redundant here.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filejob/FileJobs.kt:2238:17 'when' is exhaustive so 'else' is redundant here.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/FileListAdapter.kt:296:64 Unnecessary non-null assertion (!!) on a non-null receiver of type 'String'.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/FileListAdapter.kt:314:46 Unnecessary non-null assertion (!!) on a non-null receiver of type 'Int'.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/FileListAdapter.kt:323:49 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TextView'.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/FileListFragment.kt:198:9 'fun setHasOptionsMenu(p0: Boolean): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/FileListFragment.kt:210:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/FileListFragment.kt:211:15 'fun onActivityCreated(p0: Bundle?): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/FileListFragment.kt:384:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/FileListFragment.kt:385:15 'fun onCreateOptionsMenu(p0: Menu, p1: MenuInflater): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/FileListFragment.kt:438:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/FileListFragment.kt:439:15 'fun onPrepareOptionsMenu(p0: Menu): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/FileListFragment.kt:446:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/FileListFragment.kt:547:27 'fun onOptionsItemSelected(p0: MenuItem): Boolean' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/FileListFragment.kt:776:39 'fun <T : Parcelable!> getParcelableExtra(p0: String!): T?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/FileListLiveData.kt:8:8 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/FileListLiveData.kt:40:19 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/FileListLiveData.kt:40:29 'static field THREAD_POOL_EXECUTOR: Executor!' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/PathObserver.kt:8:8 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/PathObserver.kt:26:9 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/PathObserver.kt:26:19 'static field THREAD_POOL_EXECUTOR: Executor!' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/PathObserver.kt:49:9 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/PathObserver.kt:49:19 'static field THREAD_POOL_EXECUTOR: Executor!' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/SearchFileListLiveData.kt:8:8 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/SearchFileListLiveData.kt:36:19 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/filelist/SearchFileListLiveData.kt:36:29 'static field THREAD_POOL_EXECUTOR: Executor!' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/FileLiveData.kt:8:8 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/FileLiveData.kt:37:9 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/FileLiveData.kt:37:19 'static field THREAD_POOL_EXECUTOR: Executor!' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/FilePropertiesDialogFragment.kt:61:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/FilePropertiesDialogFragment.kt:62:15 'fun onActivityCreated(p0: Bundle?): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/FilePropertiesTabFragment.kt:39:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/FilePropertiesTabFragment.kt:40:15 'fun onActivityCreated(p0: Bundle?): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/apk/ApkInfoLiveData.kt:9:8 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/apk/ApkInfoLiveData.kt:32:9 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/apk/ApkInfoLiveData.kt:32:19 'static field THREAD_POOL_EXECUTOR: Executor!' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/apk/PermissionListAdapter.kt:39:41 'fun String.capitalize(locale: Locale): String' is deprecated. Use replaceFirstChar instead.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/apk/PermissionListLiveData.kt:8:8 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/apk/PermissionListLiveData.kt:27:9 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/apk/PermissionListLiveData.kt:27:19 'static field THREAD_POOL_EXECUTOR: Executor!' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/audio/AudioInfoLiveData.kt:9:8 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/audio/AudioInfoLiveData.kt:32:9 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/audio/AudioInfoLiveData.kt:32:19 'static field THREAD_POOL_EXECUTOR: Executor!' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/checksum/ChecksumInfo.kt:13:26 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/checksum/ChecksumInfoLiveData.kt:8:8 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/checksum/ChecksumInfoLiveData.kt:32:19 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/checksum/ChecksumInfoLiveData.kt:32:29 'static field THREAD_POOL_EXECUTOR: Executor!' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/image/ImageInfoLiveData.kt:9:8 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/image/ImageInfoLiveData.kt:38:9 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/image/ImageInfoLiveData.kt:38:19 'static field THREAD_POOL_EXECUTOR: Executor!' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/permission/PrincipalListLiveData.kt:9:8 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/permission/PrincipalListLiveData.kt:25:9 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/permission/PrincipalListLiveData.kt:25:19 'static field THREAD_POOL_EXECUTOR: Executor!' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/video/VideoInfoLiveData.kt:9:8 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/video/VideoInfoLiveData.kt:33:9 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/fileproperties/video/VideoInfoLiveData.kt:33:19 'static field THREAD_POOL_EXECUTOR: Executor!' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ftpserver/FtpServerFragment.kt:28:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ftpserver/FtpServerFragment.kt:29:15 'fun onActivityCreated(p0: Bundle?): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ftpserver/FtpServerUrl.kt:34:46 'static field CONNECTIVITY_ACTION: String' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/BookmarkDirectory.kt:20:30 Non-public primary constructor is exposed via the generated 'copy()' method of the 'data' class.
+
+The generated 'copy()' will change its visibility in future releases.
+
+To suppress the warning do one of the following:
+- Annotate the data class with the '@ConsistentCopyVisibility' annotation.
+- Use the '-Xconsistent-data-class-copy-visibility' compiler flag.
+- Annotate the data class with the '@ExposedCopyVisibility' annotation 
+  (Discouraged, but can be used to keep binary compatibility).
+
+To learn more, see the documentation of the '@ConsistentCopyVisibility' and '@ExposedCopyVisibility' annotations.
+
+This will become an error in language version 2.5. See https://youtrack.jetbrains.com/issue/KT-11914.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationFragment.kt:36:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationFragment.kt:37:15 'fun onActivityCreated(p0: Bundle?): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationItems.kt:374:5 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationItems.kt:375:5 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationListAdapter.kt:248:9 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationListAdapter.kt:249:9 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationListAdapter.kt:252:9 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationListAdapter.kt:254:9 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationListAdapter.kt:255:9 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationListAdapter.kt:257:9 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationListAdapter.kt:259:9 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationListAdapter.kt:260:9 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationListAdapter.kt:261:9 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationListAdapter.kt:262:9 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationRecyclerView.kt:32:66 'static field statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationRecyclerView.kt:71:20 'val systemWindowInsetRight: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationRecyclerView.kt:73:20 'val systemWindowInsetLeft: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationRecyclerView.kt:77:27 'val systemWindowInsetTop: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationRecyclerView.kt:80:38 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationRecyclerView.kt:83:23 'fun replaceSystemWindowInsets(p0: Int, p1: Int, p2: Int, p3: Int): WindowInsets' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationRecyclerView.kt:84:20 'val systemWindowInsetLeft: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationRecyclerView.kt:85:20 'val systemWindowInsetRight: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/NavigationRecyclerView.kt:92:39 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/StandardDirectory.kt:12:30 Non-public primary constructor is exposed via the generated 'copy()' method of the 'data' class.
+
+The generated 'copy()' will change its visibility in future releases.
+
+To suppress the warning do one of the following:
+- Annotate the data class with the '@ConsistentCopyVisibility' annotation.
+- Use the '-Xconsistent-data-class-copy-visibility' compiler flag.
+- Annotate the data class with the '@ExposedCopyVisibility' annotation 
+  (Discouraged, but can be used to keep binary compatibility).
+
+To learn more, see the documentation of the '@ConsistentCopyVisibility' and '@ExposedCopyVisibility' annotations.
+
+This will become an error in language version 2.5. See https://youtrack.jetbrains.com/issue/KT-11914.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/StandardDirectory.kt:13:5 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/navigation/StandardDirectory.kt:14:5 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/plugin/PluginManager.kt:154:75 'field versionCode: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/provider/archive/ArchiveFileSystem.kt:234:42 'fun <T : Parcelable!> readParcelable(p0: ClassLoader?): T?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/provider/common/AccessModes.kt:21:13 'when' is exhaustive so 'else' is redundant here.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/provider/common/CopyOptions.kt:55:21 'when' is exhaustive so 'else' is redundant here.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/provider/common/LinkOptions.kt:25:13 'when' is exhaustive so 'else' is redundant here.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/provider/common/OpenOptions.kt:53:17 'when' is exhaustive so 'else' is redundant here.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/provider/common/PollingWatchService.kt:186:82 This class is not recommended for use in Kotlin. Use 'kotlin.Any' instead.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/provider/common/PollingWatchService.kt:187:46 This class is not recommended for use in Kotlin. Use 'kotlin.Any' instead.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/provider/common/PollingWatchService.kt:187:85 This class is not recommended for use in Kotlin. Use 'kotlin.Any' instead.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/provider/common/PosixFileMode.kt:124:17 'when' is exhaustive so 'else' is redundant here.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/provider/document/DocumentFileSystemProvider.kt:242:43 Unnecessary non-null assertion (!!) on a non-null receiver of type 'ParcelFileDescriptor'.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/provider/document/resolver/DocumentResolver.kt:449:13 'fun delete(uri: Uri): Unit' is deprecated.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/provider/linux/LocalLinuxFileSystemProvider.kt:241:15 No cast needed.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/provider/remote/IInterfaceExtensions.kt:34:9 Wrong invocation kind 'EXACTLY_ONCE' for 'block: T.() -> R' specified, the actual invocation kind is 'AT_MOST_ONCE'.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/provider/remote/ParcelableCopyOptions.kt:20:28 'fun <T : Parcelable!> readParcelable(p0: ClassLoader?): T?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/provider/remote/ParcelableObject.kt:16:16 'fun <T : Parcelable!> readParcelable(p0: ClassLoader?): T?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/provider/remote/ParcelableSerializable.kt:16:55 'fun readSerializable(): Serializable?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/search/SearchResultsActivity.kt:51:29 'fun <T : Parcelable!> getParcelableExtra(p0: String!): T?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/settings/BookmarkDirectoryListFragment.kt:54:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/settings/BookmarkDirectoryListFragment.kt:55:15 'fun onActivityCreated(p0: Bundle?): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/settings/RootStrategyPreference.kt:44:48 'static field yes: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/settings/SettingLiveData.kt:21:5 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/settings/SettingsActivity.kt:73:9 'fun overridePendingTransition(p0: Int, p1: Int): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/settings/SettingsFragment.kt:28:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/settings/SettingsFragment.kt:29:15 'fun onActivityCreated(p0: Bundle?): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/settings/SettingsPreferenceFragment.kt:71:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/settings/SettingsPreferenceFragment.kt:72:15 'fun onActivityCreated(p0: Bundle?): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/settings/StandardDirectoryListFragment.kt:28:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/settings/StandardDirectoryListFragment.kt:29:15 'fun onActivityCreated(p0: Bundle?): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/settings/StandardDirectoryListPreferenceFragment.kt:27:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/settings/StandardDirectoryListPreferenceFragment.kt:28:15 'fun onActivityCreated(p0: Bundle?): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/AddDocumentTreeFragment.kt:23:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/AddDocumentTreeFragment.kt:24:15 'fun onActivityCreated(p0: Bundle?): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/AddExternalStorageShortcutFragment.kt:24:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/AddExternalStorageShortcutFragment.kt:25:15 'fun onActivityCreated(p0: Bundle?): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/AddExternalStorageShortcutFragment.kt:43:9 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/AddLanSmbServerFragment.kt:48:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/AddLanSmbServerFragment.kt:49:15 'fun onActivityCreated(p0: Bundle?): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/EditFtpServerFragment.kt:52:24 'fun launchWhenStarted(block: suspend CoroutineScope.() -> Unit): Job' is deprecated. launchWhenStarted is deprecated as it can lead to wasted resources in some cases. Replace with suspending repeatOnLifecycle to run the block whenever the Lifecycle state is at least Lifecycle.State.STARTED.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/EditFtpServerFragment.kt:70:33 'fun launchWhenCreated(block: suspend CoroutineScope.() -> Unit): Job' is deprecated. launchWhenCreated is deprecated as it can lead to wasted resources in some cases. Replace with suspending repeatOnLifecycle to run the block whenever the Lifecycle state is at least Lifecycle.State.CREATED.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/EditSftpServerFragment.kt:59:24 'fun launchWhenStarted(block: suspend CoroutineScope.() -> Unit): Job' is deprecated. launchWhenStarted is deprecated as it can lead to wasted resources in some cases. Replace with suspending repeatOnLifecycle to run the block whenever the Lifecycle state is at least Lifecycle.State.STARTED.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/EditSftpServerFragment.kt:80:33 'fun launchWhenCreated(block: suspend CoroutineScope.() -> Unit): Job' is deprecated. launchWhenCreated is deprecated as it can lead to wasted resources in some cases. Replace with suspending repeatOnLifecycle to run the block whenever the Lifecycle state is at least Lifecycle.State.CREATED.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/EditSmbServerFragment.kt:51:24 'fun launchWhenStarted(block: suspend CoroutineScope.() -> Unit): Job' is deprecated. launchWhenStarted is deprecated as it can lead to wasted resources in some cases. Replace with suspending repeatOnLifecycle to run the block whenever the Lifecycle state is at least Lifecycle.State.STARTED.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/EditSmbServerFragment.kt:69:33 'fun launchWhenCreated(block: suspend CoroutineScope.() -> Unit): Job' is deprecated. launchWhenCreated is deprecated as it can lead to wasted resources in some cases. Replace with suspending repeatOnLifecycle to run the block whenever the Lifecycle state is at least Lifecycle.State.CREATED.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/EditWebDavServerFragment.kt:54:24 'fun launchWhenStarted(block: suspend CoroutineScope.() -> Unit): Job' is deprecated. launchWhenStarted is deprecated as it can lead to wasted resources in some cases. Replace with suspending repeatOnLifecycle to run the block whenever the Lifecycle state is at least Lifecycle.State.STARTED.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/EditWebDavServerFragment.kt:72:33 'fun launchWhenCreated(block: suspend CoroutineScope.() -> Unit): Job' is deprecated. launchWhenCreated is deprecated as it can lead to wasted resources in some cases. Replace with suspending repeatOnLifecycle to run the block whenever the Lifecycle state is at least Lifecycle.State.CREATED.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/LanSmbServerListLiveData.kt:8:8 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/LanSmbServerListLiveData.kt:44:23 'class AsyncTask<Params : Any!, Progress : Any!, Result : Any!> : Any' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/LanSmbServerListLiveData.kt:44:33 'static field THREAD_POOL_EXECUTOR: Executor!' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/LanSmbServerListLiveData.kt:49:45 This declaration needs opt-in. Its usage should be marked with '@kotlinx.coroutines.ExperimentalCoroutinesApi' or '@OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)'
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/LanSmbServerListLiveData.kt:85:9 This declaration needs opt-in. Its usage should be marked with '@kotlinx.coroutines.ExperimentalCoroutinesApi' or '@OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)'
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/LanSmbServerListLiveData.kt:123:9 This declaration needs opt-in. Its usage should be marked with '@kotlinx.coroutines.ExperimentalCoroutinesApi' or '@OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)'
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/StorageListFragment.kt:44:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/storage/StorageListFragment.kt:45:15 'fun onActivityCreated(p0: Bundle?): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/tabs/TabsActivity.kt:69:44 'fun <T : Parcelable!> getParcelableArrayList(p0: String?): ArrayList<T!>?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/theme/custom/ThemeColor.kt:6:23 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/theme/night/NightMode.kt:14:33 'static field MODE_NIGHT_AUTO_TIME: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/CoordinatorAppBarLayout.kt:40:41 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/CoordinatorAppBarLayout.kt:43:24 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/CoordinatorAppBarLayout.kt:47:9 'fun addLiftOnScrollListener(p0: AppBarLayout.LiftOnScrollListener): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/CoordinatorScrollingFrameLayout.kt:55:37 'val systemWindowInsetLeft: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/CoordinatorScrollingFrameLayout.kt:55:75 'val systemWindowInsetRight: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/CoordinatorScrollingFrameLayout.kt:57:14 'fun setSystemWindowInsets(p0: Insets): WindowInsetsCompat.Builder' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/CoordinatorScrollingFrameLayout.kt:57:62 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/CoordinatorScrollingFrameLayout.kt:74:75 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/CoordinatorScrollingFrameLayout.kt:78:53 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/CoordinatorScrollingFrameLayout.kt:129:36 'val systemWindowInsetTop: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/CoordinatorScrollingFrameLayout.kt:129:72 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/CoordinatorScrollingLinearLayout.kt:55:37 'val systemWindowInsetLeft: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/CoordinatorScrollingLinearLayout.kt:55:75 'val systemWindowInsetRight: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/CoordinatorScrollingLinearLayout.kt:57:14 'fun setSystemWindowInsets(p0: Insets): WindowInsetsCompat.Builder' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/CoordinatorScrollingLinearLayout.kt:57:62 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/CoordinatorScrollingLinearLayout.kt:75:75 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/CoordinatorScrollingLinearLayout.kt:79:53 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/CoordinatorScrollingLinearLayout.kt:130:36 'val systemWindowInsetTop: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/CoordinatorScrollingLinearLayout.kt:130:72 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/FitsSystemWindowsAppBarLayout.kt:33:33 'val systemWindowInsetLeft: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/FitsSystemWindowsAppBarLayout.kt:33:77 'val systemWindowInsetRight: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/MaterialPreferenceDialogFragmentCompat.kt:37:24 'val targetFragment: Fragment?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/MaterialPreferenceDialogFragmentCompat.kt:198:9 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentBarLayout.kt:50:32 'fun replaceSystemWindowInsets(p0: Int, p1: Int, p2: Int, p3: Int): WindowInsets' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentBarLayout.kt:51:36 'val systemWindowInsetLeft: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentBarLayout.kt:51:66 'val systemWindowInsetTop: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentBarLayout.kt:52:36 'val systemWindowInsetRight: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentBarLayout.kt:57:32 'fun replaceSystemWindowInsets(p0: Int, p1: Int, p2: Int, p3: Int): WindowInsets' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentBarLayout.kt:58:36 'val systemWindowInsetLeft: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentBarLayout.kt:58:69 'val systemWindowInsetRight: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentBarLayout.kt:59:36 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentBarLayout.kt:69:23 'fun consumeSystemWindowInsets(): WindowInsets' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentBarLayout.kt:81:35 'fun replaceSystemWindowInsets(p0: Int, p1: Int, p2: Int, p3: Int): WindowInsets' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentBarLayout.kt:82:39 'val systemWindowInsetLeft: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentBarLayout.kt:83:40 'val systemWindowInsetTop: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentBarLayout.kt:84:39 'val systemWindowInsetRight: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentBarLayout.kt:85:39 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentBarLayout.kt:88:35 'fun replaceSystemWindowInsets(p0: Int, p1: Int, p2: Int, p3: Int): WindowInsets' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentBarLayout.kt:89:39 'val systemWindowInsetLeft: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentBarLayout.kt:90:39 'val systemWindowInsetTop: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentBarLayout.kt:91:39 'val systemWindowInsetRight: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentBarLayout.kt:92:40 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentDrawerLayout.kt:47:32 'fun replaceSystemWindowInsets(p0: Int, p1: Int, p2: Int, p3: Int): WindowInsets' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentDrawerLayout.kt:48:36 'val systemWindowInsetLeft: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentDrawerLayout.kt:48:66 'val systemWindowInsetTop: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentDrawerLayout.kt:49:36 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentDrawerLayout.kt:54:32 'fun replaceSystemWindowInsets(p0: Int, p1: Int, p2: Int, p3: Int): WindowInsets' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentDrawerLayout.kt:56:36 'val systemWindowInsetTop: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentDrawerLayout.kt:56:65 'val systemWindowInsetRight: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentDrawerLayout.kt:57:36 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentDrawerLayout.kt:67:23 'fun consumeSystemWindowInsets(): WindowInsets' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentDrawerLayout.kt:79:35 'fun replaceSystemWindowInsets(p0: Int, p1: Int, p2: Int, p3: Int): WindowInsets' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentDrawerLayout.kt:80:40 'val systemWindowInsetLeft: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentDrawerLayout.kt:81:39 'val systemWindowInsetTop: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentDrawerLayout.kt:82:39 'val systemWindowInsetRight: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentDrawerLayout.kt:83:39 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentDrawerLayout.kt:86:35 'fun replaceSystemWindowInsets(p0: Int, p1: Int, p2: Int, p3: Int): WindowInsets' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentDrawerLayout.kt:87:39 'val systemWindowInsetLeft: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentDrawerLayout.kt:88:39 'val systemWindowInsetTop: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentDrawerLayout.kt:89:40 'val systemWindowInsetRight: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/PersistentDrawerLayout.kt:91:39 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/ScrollingViewOnApplyWindowInsetsListener.kt:27:44 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/ScrollingViewOnApplyWindowInsetsListener.kt:29:50 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/StaticAdapter.kt:15:5 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/TabFragmentPagerAdapter.kt:10:8 'class FragmentPagerAdapter : PagerAdapter' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/ui/TabFragmentPagerAdapter.kt:15:5 'class FragmentPagerAdapter : PagerAdapter' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/AbstractLocalCursor.kt:171:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/AbstractLocalCursor.kt:173:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/BundleExtensions.kt:15:12 'fun <T : Parcelable!> getParcelable(p0: String?): T?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/BundleExtensions.kt:20:12 'fun getParcelableArray(p0: String?): Array<(out) Parcelable!>?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/BundleExtensions.kt:25:12 'fun <T : Parcelable!> getParcelableArrayList(p0: String?): ArrayList<T!>?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/BundleExtensions.kt:30:12 'fun <T : Parcelable!> getSparseParcelableArray(p0: String?): SparseArray<T!>?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/Color.kt:16:19 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/FragmentExtensions.kt:184:9 'fun startActivityForResult(p0: Intent, p1: Int, p2: Bundle?): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/GeocoderExtensions.kt:23:9 'fun getFromLocation(p0: Double, p1: Double, p2: Int): (Mutable)List<Address!>?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/InetAddressExtensions.kt:16:32 'val connectionInfo: WifiInfo!' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/InetAddressExtensions.kt:20:32 'val ipAddress: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/IntentExtensions.kt:82:12 'fun <T : Parcelable!> getParcelableExtra(p0: String!): T?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/IntentExtensions.kt:87:12 'fun getParcelableArrayExtra(p0: String!): Array<(out) Parcelable!>?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/IntentExtensions.kt:92:12 'fun <T : Parcelable!> getParcelableArrayListExtra(p0: String!): ArrayList<T!>?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/IntentPathExtensions.kt:69:30 'fun getSerializableExtra(p0: String!): Serializable?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/NotificationTemplate.kt:22:5 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/NotificationTemplate.kt:23:5 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/NotificationTemplate.kt:24:5 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/NotificationTemplate.kt:25:5 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/NotificationTemplate.kt:48:5 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/NotificationTemplate.kt:50:5 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/PackageManagerExtensions.kt:24:9 Wrong invocation kind 'EXACTLY_ONCE' for 'block: () -> T' specified, the actual invocation kind is 'AT_MOST_ONCE'.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/Parcelers.kt:24:56 'fun <T : Parcelable!> readParcelable(p0: ClassLoader?): T?' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:84:13 'var systemUiVisibility: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:84:45 'static field SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:86:9 'var systemUiVisibility: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:87:13 'var systemUiVisibility: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:87:40 'static field SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:88:22 'static field SYSTEM_UI_FLAG_LAYOUT_STABLE: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:90:13 'var systemUiVisibility: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:90:44 'static field SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:95:13 'var systemUiVisibility: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:95:45 'static field SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:97:9 'var systemUiVisibility: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:98:13 'var systemUiVisibility: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:98:40 'static field SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:99:22 'static field SYSTEM_UI_FLAG_LAYOUT_STABLE: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:101:13 'var systemUiVisibility: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:101:44 'static field SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:124:5 This is a delicate API and its use requires care. Make sure you fully read and understand documentation of the declaration that is marked as a delicate API.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:147:5 This is a delicate API and its use requires care. Make sure you fully read and understand documentation of the declaration that is marked as a delicate API.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:159:5 This is a delicate API and its use requires care. Make sure you fully read and understand documentation of the declaration that is marked as a delicate API.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:182:5 This is a delicate API and its use requires care. Make sure you fully read and understand documentation of the declaration that is marked as a delicate API.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:211:5 This is a delicate API and its use requires care. Make sure you fully read and understand documentation of the declaration that is marked as a delicate API.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/ViewExtensions.kt:233:5 This is a delicate API and its use requires care. Make sure you fully read and understand documentation of the declaration that is marked as a delicate API.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/util/WakeWifiLock.kt:17:48 'static field WIFI_MODE_FULL_HIGH_PERF: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/viewer/image/ImageViewerFragment.kt:65:9 'fun setHasOptionsMenu(p0: Boolean): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/viewer/image/ImageViewerFragment.kt:77:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/viewer/image/ImageViewerFragment.kt:78:15 'fun onActivityCreated(p0: Bundle?): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/viewer/image/ImageViewerFragment.kt:90:25 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/viewer/image/ImageViewerFragment.kt:140:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/viewer/image/ImageViewerFragment.kt:141:15 'fun onCreateOptionsMenu(p0: Menu, p1: MenuInflater): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/viewer/image/ImageViewerFragment.kt:146:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/viewer/image/ImageViewerFragment.kt:156:27 'fun onOptionsItemSelected(p0: MenuItem): Boolean' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/viewer/text/TextEditorFragment.kt:60:9 'fun setHasOptionsMenu(p0: Boolean): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/viewer/text/TextEditorFragment.kt:62:24 'fun launchWhenStarted(block: suspend CoroutineScope.() -> Unit): Job' is deprecated. launchWhenStarted is deprecated as it can lead to wasted resources in some cases. Replace with suspending repeatOnLifecycle to run the block whenever the Lifecycle state is at least Lifecycle.State.STARTED.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/viewer/text/TextEditorFragment.kt:103:33 'fun launchWhenCreated(block: suspend CoroutineScope.() -> Unit): Job' is deprecated. launchWhenCreated is deprecated as it can lead to wasted resources in some cases. Replace with suspending repeatOnLifecycle to run the block whenever the Lifecycle state is at least Lifecycle.State.CREATED.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/viewer/text/TextEditorFragment.kt:137:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/viewer/text/TextEditorFragment.kt:138:15 'fun onCreateOptionsMenu(p0: Menu, p1: MenuInflater): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/viewer/text/TextEditorFragment.kt:143:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/viewer/text/TextEditorFragment.kt:144:15 'fun onPrepareOptionsMenu(p0: Menu): Unit' is deprecated. Deprecated in Java.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/viewer/text/TextEditorFragment.kt:150:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/sentry/SentryFileManager/app/src/main/java/com/sentry/filemanager/viewer/text/TextEditorFragment.kt:164:27 'fun onOptionsItemSelected(p0: MenuItem): Boolean' is deprecated. Deprecated in Java.
+
+> Task :app:compileReleaseJavaWithJavac
+> Task :app:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :app:processReleaseJavaRes
+> Task :app:generateReleaseLintVitalReportModel
+> Task :app:expandReleaseArtProfileWildcards
+> Task :app:mergeReleaseJavaResource
+> Task :app:lintVitalAnalyzeRelease
+> Task :app:minifyReleaseWithR8
+> Task :app:convertShrunkResourcesToBinaryRelease
+> Task :app:optimizeReleaseResources
+> Task :app:l8DexDesugarLibRelease
+> Task :app:compileReleaseArtProfile
+> Task :app:lintVitalReportRelease
+> Task :app:lintVitalRelease
+> Task :app:packageRelease
+> Task :app:createReleaseApkListingFileRedirect
+> Task :app:assembleRelease
 
 [Incubating] Problems report is available at: file:///home/sentry/SentryFileManager/build/reports/problems/problems-report.html
 
@@ -139,6 +568,6 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 15s
-117 actionable tasks: 17 executed, 100 up-to-date
+BUILD SUCCESSFUL in 11m 14s
+117 actionable tasks: 72 executed, 45 up-to-date
 Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.1/userguide/configuration_cache_enabling.html

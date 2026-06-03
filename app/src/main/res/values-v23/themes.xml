@@ -10,6 +10,7 @@
     <style name="Platform.V23.Theme.MaterialFiles" parent="Platform.V21.Theme.MaterialFiles">
         <item name="colorPrimaryDark">@color/system_window_scrim</item>
         <item name="android:windowLightStatusBar">?isLightTheme</item>
+        <item name="dividerColor">#1F000000</item>
     </style>
     <style name="Platform.Theme.MaterialFiles" parent="Platform.V23.Theme.MaterialFiles" />
 </resources>

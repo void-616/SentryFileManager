@@ -11,11 +11,13 @@
         <item name="android:navigationBarColor">?colorPrimaryDark</item>
         <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
         <item name="android:windowLightNavigationBar">?isLightTheme</item>
+        <item name="dividerColor">#1F000000</item>
     </style>
     <style name="Platform.Theme.MaterialFiles" parent="Platform.V27.Theme.MaterialFiles" />
 
     <style name="Platform.V27.Theme.MaterialFiles.Immersive" parent="Platform.V21.Theme.MaterialFiles.Immersive">
         <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+        <item name="dividerColor">#1F000000</item>
     </style>
     <style name="Platform.Theme.MaterialFiles.Immersive" parent="Platform.V27.Theme.MaterialFiles.Immersive" />
 </resources>

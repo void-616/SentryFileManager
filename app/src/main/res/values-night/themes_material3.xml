@@ -9,13 +9,16 @@
     <style name="Theme.MaterialFiles.Material3.Black">
         <item name="colorPrimaryDark">@color/color_primary_dark_black</item>
         <item name="colorSurface">@android:color/black</item>
+        <item name="dividerColor">#1FFFFFFF</item>
     </style>
     <style name="Theme.MaterialFiles.Material3.Translucent.Black">
         <item name="colorPrimaryDark">@color/color_primary_dark_black</item>
         <item name="colorSurface">@android:color/black</item>
+        <item name="dividerColor">#1FFFFFFF</item>
     </style>
     <style name="Theme.MaterialFiles.Material3.Immersive.Black">
         <item name="colorPrimaryDark">@color/color_primary_dark_black</item>
         <item name="colorSurface">@android:color/black</item>
+        <item name="dividerColor">#1FFFFFFF</item>
     </style>
 </resources>

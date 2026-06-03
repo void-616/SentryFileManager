@@ -9,11 +9,13 @@
 
     <style name="Platform.V30.Theme.MaterialFiles.Material3" parent="Platform.V29.Theme.MaterialFiles.Material3">
         <item name="android:windowLayoutInDisplayCutoutMode">always</item>
+        <item name="dividerColor">#1F000000</item>
     </style>
     <style name="Platform.Theme.MaterialFiles.Material3" parent="Platform.V30.Theme.MaterialFiles.Material3" />
 
     <style name="Platform.V30.Theme.MaterialFiles.Material3.Immersive" parent="Platform.V29.Theme.MaterialFiles.Material3.Immersive">
         <item name="android:windowLayoutInDisplayCutoutMode">always</item>
+        <item name="dividerColor">#1F000000</item>
     </style>
     <style name="Platform.Theme.MaterialFiles.Material3.Immersive" parent="Platform.V30.Theme.MaterialFiles.Material3.Immersive" />
 </resources>

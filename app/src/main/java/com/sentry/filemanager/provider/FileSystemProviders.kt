@@ -33,7 +33,11 @@ object FileSystemProviders {
     @Volatile
     var overflowWatchEvents = false
 
+    @Volatile
+    var isInstalled = false
+
     fun install() {
+        isInstalled = true
         FileSystemProvider.installDefaultProvider(LinuxFileSystemProvider)
         FileSystemProvider.installProvider(ArchiveFileSystemProvider)
         if (!isRunningAsRoot) {

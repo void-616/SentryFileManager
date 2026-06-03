@@ -9,6 +9,7 @@
 
     <style name="Platform.V21.Theme.MaterialFiles" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimaryDark">@color/system_window_scrim_compat</item>
+        <item name="dividerColor">#1F000000</item>
     </style>
     <style name="Platform.Theme.MaterialFiles" parent="Platform.V21.Theme.MaterialFiles" />
     <style name="Base.Theme.MaterialFiles" parent="Platform.Theme.MaterialFiles">
@@ -36,12 +37,14 @@
         <item name="minTouchTargetSize">0dp</item>
 
         <item name="colorAppBarSurface">?colorSurface</item>
+        <item name="dividerColor">#1F000000</item>
     </style>
     <style name="Theme.MaterialFiles" parent="Base.Theme.MaterialFiles" />
 
     <style name="Platform.V21.Theme.MaterialFiles.Translucent" parent="Theme.MaterialFiles">
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="dividerColor">#1F000000</item>
     </style>
     <style name="Platform.Theme.MaterialFiles.Translucent" parent="Platform.V21.Theme.MaterialFiles.Translucent" />
     <style name="Base.Theme.MaterialFiles.Translucent" parent="Platform.Theme.MaterialFiles.Translucent">
@@ -52,6 +55,7 @@
         <item name="android:windowDisablePreview">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="windowNoTitle">true</item>
+        <item name="dividerColor">#1F000000</item>
     </style>
     <style name="Theme.MaterialFiles.Translucent" parent="Base.Theme.MaterialFiles.Translucent" />
 
@@ -59,6 +63,7 @@
         <item name="android:navigationBarColor">?colorPrimaryDark</item>
 
         <item name="colorPrimaryDark">@color/dark_50_percent</item>
+        <item name="dividerColor">#1F000000</item>
     </style>
     <style name="Platform.Theme.MaterialFiles.Immersive" parent="Platform.V21.Theme.MaterialFiles.Immersive" />
     <style name="Base.Theme.MaterialFiles.Immersive" parent="Platform.Theme.MaterialFiles.Immersive">
@@ -87,6 +92,7 @@
         <item name="minTouchTargetSize">0dp</item>
 
         <item name="colorAppBarSurface">@color/dark_50_percent</item>
+        <item name="dividerColor">#1F000000</item>
     </style>
     <style name="Theme.MaterialFiles.Immersive" parent="Base.Theme.MaterialFiles.Immersive" />
 </resources>

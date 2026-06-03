@@ -47,6 +47,16 @@ val appInitializers = listOf(
     ::createNotificationChannels
 )
 
+fun hasStoragePermission(): Boolean {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        android.os.Environment.isExternalStorageManager()
+    } else {
+        androidx.core.content.ContextCompat.checkSelfPermission(
+            application,
+            android.Manifest.permission.READ_EXTERNAL_STORAGE
+        ) == android.content.pm.PackageManager.PERMISSION_GRANTED
+    }
+}
 
 private fun disableHiddenApiChecks() {
     HiddenApi.disableHiddenApiChecks()
@@ -59,6 +69,17 @@ private fun initializeWebViewDebugging() {
 }
 
 private fun initializeFileSystemProviders() {
+    // Always install providers — required before any FileSystemProvider usage.
+    // Only skip the network/SMB init and storage scan when permission not granted.
+    installFileSystemProviders()
+}
+
+fun initializeFileSystemProvidersIfNeeded() {
+    if (FileSystemProviders.isInstalled) return
+    installFileSystemProviders()
+}
+
+private fun installFileSystemProviders() {
     FileSystemProviders.install()
     FileSystemProviders.overflowWatchEvents = true
     // SingletonContext.init() calls NameServiceClientImpl.initCache() which connects to network.
@@ -77,9 +98,10 @@ private fun initializeFileSystemProviders() {
 }
 
 private fun initializeLiveDataObjects() {
-    // Force initialization of LiveData objects so that it won't happen on a background thread.
-    StorageVolumeListLiveData.value
-    Settings.FILE_LIST_DEFAULT_DIRECTORY.value
+    if (hasStoragePermission()) {
+        StorageVolumeListLiveData.value
+        Settings.FILE_LIST_DEFAULT_DIRECTORY.value
+    }
 }
 
 private fun initializeCustomTheme() {
@@ -109,7 +131,7 @@ private fun initializeCrashLogger() {
 private fun initializeCacheCleaner() {
     val result = CacheCleanerManager.cleanAll(application)
     if (result.filesDeleted > 0) {
-        android.util.Log.i("CacheCleaner", "Cleaned ${result.filesDeleted} file(s), freed ${CacheCleanerManager.formatSize(result.bytesFreed)}")
+        android.util.Log.i("CacheCleaner", "Cleaned \${result.filesDeleted} file(s), freed \${CacheCleanerManager.formatSize(result.bytesFreed)}")
     }
 }
 

@@ -68,3 +68,10 @@
 }
 -keep class * extends androidx.room.RoomDatabase
 -dontwarn androidx.room.**
+
+# Sentry FileManager - mirror rules for repackaged classes
+-keep class com.sentry.filemanager.** implements androidx.appcompat.view.CollapsibleActionView { *; }
+-keep class com.sentry.filemanager.provider.common.ByteString { *; }
+-keep class com.sentry.filemanager.provider.linux.syscall.** { *; }
+-keepnames class com.sentry.filemanager.** implements android.os.Parcelable
+-keep class com.sentry.filemanager.storage.** { *; }

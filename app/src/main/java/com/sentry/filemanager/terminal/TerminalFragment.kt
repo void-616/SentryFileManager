@@ -13,6 +13,7 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.termux.terminal.TerminalSession
@@ -32,7 +33,9 @@ class TerminalFragment : Fragment() {
 
         fun newInstance(path: String): TerminalFragment {
             return TerminalFragment().apply {
-                arguments = Bundle().apply { putString(ARG_PATH, path) }
+                arguments = Bundle().apply {
+                    putString(ARG_PATH, path)
+                }
             }
         }
     }
@@ -43,27 +46,42 @@ class TerminalFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_terminal, container, false)
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        return inflater.inflate(R.layout.fragment_terminal, container, false)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         terminalView = view.findViewById(R.id.terminal_view)
         tvTitle = view.findViewById(R.id.terminal_title)
 
-        view.findViewById<View>(R.id.btn_terminal_paste).setOnClickListener { pasteFromClipboard() }
-        setupKeyBar(view)
-        view.findViewById<View>(R.id.btn_terminal_close).setOnClickListener {
-            parentFragmentManager.popBackStack()
-        }
+        view.findViewById<View>(R.id.btn_terminal_paste)
+            .setOnClickListener { pasteFromClipboard() }
 
-        startSession()
+        view.findViewById<View>(R.id.btn_terminal_close)
+            .setOnClickListener {
+                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(terminalView.windowToken, 0)
+                parentFragmentManager.popBackStack("terminal", androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            }
+
+        setupKeyBar(view)
+
+        view.post {
+            startSession()
+        }
     }
 
     private fun startSession() {
         val shell = getShellPath()
+
         val client = SentryTerminalClient(
             onUpdate = { terminalView.onScreenUpdated() },
-            onTitleChange = { title -> activity?.runOnUiThread { tvTitle.text = title } }
+            onTitleChange = { title ->
+                activity?.runOnUiThread { tvTitle.text = title }
+            }
         )
 
         terminalSession = TerminalSession(
@@ -75,23 +93,27 @@ class TerminalFragment : Fragment() {
             client
         )
 
-        terminalView.attachSession(terminalSession)
+        terminalView.setTextSize(24)
         terminalView.setTerminalViewClient(object : TerminalViewClient {
-            override fun onScale(scale: Float): Float = 1f
-            override fun onSingleTapUp(e: MotionEvent) {}
-            override fun shouldBackButtonBeMappedToEscape(): Boolean = false
-            override fun shouldEnforceCharBasedInput(): Boolean = false
-            override fun shouldUseCtrlSpaceWorkaround(): Boolean = false
-            override fun isTerminalViewSelected(): Boolean = true
+            override fun onScale(scale: Float) = 1f
+            override fun onSingleTapUp(e: MotionEvent) {
+                terminalView.requestFocus()
+                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.showSoftInput(terminalView, InputMethodManager.SHOW_FORCED)
+            }
+            override fun shouldBackButtonBeMappedToEscape() = false
+            override fun shouldEnforceCharBasedInput() = false
+            override fun shouldUseCtrlSpaceWorkaround() = false
+            override fun isTerminalViewSelected() = true
             override fun copyModeChanged(copyMode: Boolean) {}
-            override fun onKeyDown(keyCode: Int, e: KeyEvent, session: TerminalSession?): Boolean = false
-            override fun onKeyUp(keyCode: Int, e: KeyEvent): Boolean = false
-            override fun onLongPress(event: MotionEvent): Boolean = false
-            override fun readControlKey(): Boolean = false
-            override fun readAltKey(): Boolean = false
-            override fun readShiftKey(): Boolean = false
-            override fun readFnKey(): Boolean = false
-            override fun onCodePoint(codePoint: Int, ctrlDown: Boolean, session: TerminalSession?): Boolean = false
+            override fun onKeyDown(keyCode: Int, e: KeyEvent, session: TerminalSession?) = false
+            override fun onKeyUp(keyCode: Int, e: KeyEvent) = false
+            override fun onLongPress(event: MotionEvent) = false
+            override fun readControlKey() = false
+            override fun readAltKey() = false
+            override fun readShiftKey() = false
+            override fun readFnKey() = false
+            override fun onCodePoint(codePoint: Int, ctrlDown: Boolean, session: TerminalSession?) = false
             override fun onEmulatorSet() {}
             override fun logError(tag: String?, message: String?) {}
             override fun logWarn(tag: String?, message: String?) {}
@@ -101,53 +123,38 @@ class TerminalFragment : Fragment() {
             override fun logStackTraceWithMessage(tag: String?, message: String?, e: Exception?) {}
             override fun logStackTrace(tag: String?, e: Exception?) {}
         })
+
+        terminalView.attachSession(terminalSession)
+
+        terminalView.post {
+            terminalView.requestFocus()
+            val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.showSoftInput(terminalView, InputMethodManager.SHOW_FORCED)
+        }
+
+
     }
 
-    private fun setupKeyBar(view: android.view.View) {
-        // ESC
-        view.findViewById<android.view.View>(R.id.key_esc).setOnClickListener {
-            terminalSession?.write("")
-        }
-        // TAB
-        view.findViewById<android.view.View>(R.id.key_tab).setOnClickListener {
-            terminalSession?.write("	")
-        }
-        // CTRL toggle — sends next char as ctrl combo
-        view.findViewById<android.view.View>(R.id.key_ctrl).setOnClickListener {
-            terminalSession?.write("") // Ctrl+C as default, will improve later
-        }
-        // Arrows
-        view.findViewById<android.view.View>(R.id.key_arrow_up).setOnClickListener {
-            terminalSession?.write("[A")
-        }
-        view.findViewById<android.view.View>(R.id.key_arrow_down).setOnClickListener {
-            terminalSession?.write("[B")
-        }
-        view.findViewById<android.view.View>(R.id.key_arrow_right).setOnClickListener {
-            terminalSession?.write("[C")
-        }
-        view.findViewById<android.view.View>(R.id.key_arrow_left).setOnClickListener {
-            terminalSession?.write("[D")
-        }
-        // Home / End
-        view.findViewById<android.view.View>(R.id.key_home).setOnClickListener {
-            terminalSession?.write("[H")
-        }
-        view.findViewById<android.view.View>(R.id.key_end).setOnClickListener {
-            terminalSession?.write("[F")
-        }
-        // Page Up / Down
-        view.findViewById<android.view.View>(R.id.key_pgup).setOnClickListener {
-            terminalSession?.write("[5~")
-        }
-        view.findViewById<android.view.View>(R.id.key_pgdn).setOnClickListener {
-            terminalSession?.write("[6~")
-        }
+    private fun setupKeyBar(view: View) {
+        view.findViewById<View>(R.id.key_tab).setOnClickListener { terminalSession?.write("\t") }
+        view.findViewById<View>(R.id.key_ctrl).setOnClickListener { terminalSession?.write("\u0003") }
+        view.findViewById<View>(R.id.key_esc).setOnClickListener { terminalSession?.write("\u001b") }
+        view.findViewById<View>(R.id.key_arrow_up).setOnClickListener { terminalSession?.write("\u001b[A") }
+        view.findViewById<View>(R.id.key_arrow_down).setOnClickListener { terminalSession?.write("\u001b[B") }
+        view.findViewById<View>(R.id.key_arrow_left).setOnClickListener { terminalSession?.write("\u001b[D") }
+        view.findViewById<View>(R.id.key_arrow_right).setOnClickListener { terminalSession?.write("\u001b[C") }
+        view.findViewById<View>(R.id.key_home).setOnClickListener { terminalSession?.write("\u001b[H") }
+        view.findViewById<View>(R.id.key_end).setOnClickListener { terminalSession?.write("\u001b[F") }
+        view.findViewById<View>(R.id.key_pgup).setOnClickListener { terminalSession?.write("\u001b[5~") }
+        view.findViewById<View>(R.id.key_pgdn).setOnClickListener { terminalSession?.write("\u001b[6~") }
     }
 
     private fun getShellPath(): String {
-        return listOf("/system/bin/sh", "/bin/sh", "/system/bin/bash")
-            .firstOrNull { java.io.File(it).exists() } ?: "/system/bin/sh"
+        return listOf(
+            "/system/bin/sh",
+            "/bin/sh",
+            "/system/bin/bash"
+        ).firstOrNull { java.io.File(it).exists() } ?: "/system/bin/sh"
     }
 
     private fun buildEnvironment(): Array<String> {
@@ -162,8 +169,15 @@ class TerminalFragment : Fragment() {
     }
 
     private fun pasteFromClipboard() {
-        val clipboard = requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        val text = clipboard.primaryClip?.getItemAt(0)?.text?.toString() ?: return
+        val clipboard =
+            requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+
+        val text = clipboard.primaryClip
+            ?.getItemAt(0)
+            ?.text
+            ?.toString()
+            ?: return
+
         terminalSession?.write(text)
     }
 
