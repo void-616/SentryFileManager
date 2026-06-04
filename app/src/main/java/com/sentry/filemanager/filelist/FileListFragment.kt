@@ -6,7 +6,6 @@
 package com.sentry.filemanager.filelist
 
 import android.app.Activity
-import com.sentry.filemanager.dualpane.DualPaneActivity
 import android.content.ClipData
 import android.content.Context
 import android.content.Intent
@@ -495,10 +494,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
             }
             R.id.action_view_sort_path_specific -> {
                 viewModel.isViewSortPathSpecific = !menuBinding.viewSortPathSpecificItem.isChecked
-                true
-            }
-            R.id.action_split_view -> {
-                startActivity(DualPaneActivity.createIntent(requireContext(), viewModel.currentPath))
                 true
             }
             R.id.action_new_task -> {

@@ -109,20 +109,6 @@
             android:defaultValue="@bool/pref_default_value_read_remote_files_for_thumbnail" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="SentryFM — Display">
-        <SwitchPreferenceCompat
-            android:key="sentry_dual_pane_enabled"
-            android:title="Dual pane"
-            android:summary="Show two panels side by side"
-            android:defaultValue="true" />
-        <SwitchPreferenceCompat
-            android:key="sentry_dual_pane_portrait"
-            android:title="Dual pane in portrait"
-            android:summary="Enable dual pane in portrait mode"
-            android:defaultValue="false"
-            android:dependency="sentry_dual_pane_enabled" />
-    </PreferenceCategory>
-
     <PreferenceCategory android:title="SentryFM — Features">
         <Preference
             android:key="sentry_automation_rules"

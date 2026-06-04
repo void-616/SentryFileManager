@@ -73,11 +73,6 @@
         android:title="@string/file_list_action_new_task"
         app:showAsAction="never" />
 
-    <item
-        android:id="@+id/action_split_view"
-        android:orderInCategory="100"
-        android:title="Split view"
-        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_navigate_up"
