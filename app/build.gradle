@@ -59,9 +59,9 @@ android {
     signingConfigs {
         release {
             storeFile file("../sentry-release.keystore")
-            storePassword "sentryfiles2026"
+            storePassword System.getenv("SENTRY_KEYSTORE_PASSWORD")
             keyAlias "sentry"
-            keyPassword "sentryfiles2026"
+            keyPassword System.getenv("SENTRY_KEY_PASSWORD")
         }
     }
     buildTypes {
