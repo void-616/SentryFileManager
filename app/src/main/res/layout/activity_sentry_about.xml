@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0A0A"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@mipmap/launcher_icon"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SENTRY"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:textColor="#FFD700"
+            android:letterSpacing="0.15"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FILE MANAGER"
+            android:textSize="14sp"
+            android:textColor="#FFD700"
+            android:letterSpacing="0.3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Powerful. Secure. Yours."
+            android:textSize="13sp"
+            android:textColor="#AAAAAA"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Feature cards -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#1A1A1A"
+            android:padding="16dp">
+
+            <include layout="@layout/item_about_feature"
+                android:id="@+id/feature1" />
+
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:background="#2A2A2A" android:layout_marginVertical="4dp"/>
+
+            <include layout="@layout/item_about_feature"
+                android:id="@+id/feature2" />
+
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:background="#2A2A2A" android:layout_marginVertical="4dp"/>
+
+            <include layout="@layout/item_about_feature"
+                android:id="@+id/feature3" />
+
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:background="#2A2A2A" android:layout_marginVertical="4dp"/>
+
+            <include layout="@layout/item_about_feature"
+                android:id="@+id/feature4" />
+
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:background="#2A2A2A" android:layout_marginVertical="4dp"/>
+
+            <include layout="@layout/item_about_feature"
+                android:id="@+id/feature5" />
+
+        </LinearLayout>
+
+        <!-- Description -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#1A1A1A"
+            android:padding="16dp"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ABOUT SENTRY FILE MANAGER"
+                android:textSize="11sp"
+                android:textColor="#FFD700"
+                android:letterSpacing="0.1"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sentry File Manager is a modern, privacy-focused, open-source file manager with a powerful feature set including tabs, automation, terminal integration and a plugin system."
+                android:textSize="13sp"
+                android:textColor="#CCCCCC"
+                android:layout_marginTop="8dp"
+                android:lineSpacingMultiplier="1.4" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Built for power users who demand control."
+                android:textSize="13sp"
+                android:textColor="#CCCCCC"
+                android:layout_marginTop="8dp"
+                android:lineSpacingMultiplier="1.4" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="♥  Built with love by Sentry"
+            android:textSize="12sp"
+            android:textColor="#FFD700"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp" />
+
+    </LinearLayout>
+</ScrollView>

@@ -270,6 +270,11 @@
             android:theme="@style/Theme.MaterialFiles" />
 
         <activity
+            android:name="com.sentry.filemanager.about.SentryAboutActivity"
+            android:label="About Sentry File Manager"
+            android:theme="@style/Theme.MaterialFiles" />
+
+        <activity
             android:name="com.sentry.filemanager.about.AboutActivity"
             android:label="@string/about_title"
             android:launchMode="singleTop"

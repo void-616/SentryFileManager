@@ -75,3 +75,8 @@
 -keep class com.sentry.filemanager.provider.linux.syscall.** { *; }
 -keepnames class com.sentry.filemanager.** implements android.os.Parcelable
 -keep class com.sentry.filemanager.storage.** { *; }
+
+# Keep About activities from being renamed by R8
+-keep class com.sentry.filemanager.about.SentryAboutActivity { *; }
+-keep class com.sentry.filemanager.about.AboutActivity { *; }
+-keep class com.sentry.filemanager.about.AboutFragment { *; }
