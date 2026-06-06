@@ -1287,7 +1287,16 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         if (path.isArchivePath) {
             FileJobService.open(path, mimeType, withChooser, requireContext())
         } else {
-            val intent = path.fileProviderUri.createViewIntent(mimeType)
+            // For local files, try file:// URI first so media players like MX Player
+            // can use hardware decoding. Fall back to content:// if not a local path.
+            val fileUri = try {
+                val localPath = path.toFile().absolutePath
+                android.net.Uri.parse("file://$localPath")
+            } catch (e: Exception) {
+                path.fileProviderUri
+            }
+            val intent = fileUri.createViewIntent(mimeType)
+                .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                 .addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
                 .apply {
                     extraPath = path

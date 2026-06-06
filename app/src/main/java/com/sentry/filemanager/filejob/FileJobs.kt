@@ -1483,7 +1483,14 @@ class OpenFileJob(
             file, R.string.file_open_from_background_title_format,
             R.string.file_open_from_background_text
         ) { file ->
-            file.fileProviderUri.createViewIntent(mimeType)
+            val fileUri = try {
+                val localPath = file.toFile().absolutePath
+                android.net.Uri.parse("file://$localPath")
+            } catch (e: Exception) {
+                file.fileProviderUri
+            }
+            fileUri.createViewIntent(mimeType)
+                .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                 .addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
                 .apply { extraPath = file }
                 .let {
