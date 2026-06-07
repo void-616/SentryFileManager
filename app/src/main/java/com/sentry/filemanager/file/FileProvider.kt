@@ -192,6 +192,16 @@ class FileProvider : ContentProvider() {
         if (path.canOpenDirectly(modeBits)) {
             return ParcelFileDescriptor.open(path.toFile(), modeBits)
         }
+        // For document paths (SD card via SAF), open directly via document URI
+        // to avoid slow proxy descriptor which causes media players to hang
+        if (path.isDocumentPath) {
+            try {
+                val docUri = path.documentUri
+                return context!!.contentResolver.openFileDescriptor(docUri, mode)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
         val options = modeBits.toOpenOptions()
         val channel = try {
             // Strict mode thread policy is passed through binder, but some apps (notably music

@@ -6,6 +6,14 @@
 package com.sentry.filemanager.filelist
 
 import android.app.Activity
+import com.sentry.filemanager.provider.document.documentUri
+import com.sentry.filemanager.provider.document.isDocumentPath
+import com.sentry.filemanager.provider.document.DocumentPath
+import com.sentry.filemanager.storage.DocumentTree
+import com.sentry.filemanager.settings.Settings
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import android.content.ClipData
 import android.content.Context
 import android.content.Intent
@@ -81,7 +89,6 @@ import com.sentry.filemanager.navigation.NavigationRootMapLiveData
 import com.sentry.filemanager.provider.archive.createArchiveRootPath
 import com.sentry.filemanager.provider.archive.isArchivePath
 import com.sentry.filemanager.provider.linux.isLinuxPath
-import com.sentry.filemanager.settings.Settings
 import com.sentry.filemanager.terminal.Terminal
 import com.sentry.filemanager.ui.AppBarLayoutExpandHackListener
 import com.sentry.filemanager.ui.CoordinatorAppBarLayout
@@ -1287,21 +1294,28 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         if (path.isArchivePath) {
             FileJobService.open(path, mimeType, withChooser, requireContext())
         } else {
-            // For local files, try file:// URI first so media players like MX Player
-            // can use hardware decoding. Fall back to content:// if not a local path.
-            val fileUri = try {
-                val localPath = path.toFile().absolutePath
-                android.net.Uri.parse("file://$localPath")
-            } catch (e: Exception) {
-                path.fileProviderUri
-            }
-            val intent = fileUri.createViewIntent(mimeType)
-                .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-                .addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
-                .apply {
+            // Try to resolve DocumentPath to real Linux path for direct fast access
+            val resolvedUri = if (path.isDocumentPath) {
+                resolveDocumentPathToLinuxUri(path)
+            } else null
+
+            val fileUri = resolvedUri ?: path.fileProviderUri
+            val intent = if (resolvedUri != null) {
+                Intent(Intent.ACTION_VIEW).apply {
+                    setDataAndType(resolvedUri, mimeType.value)
+                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                     extraPath = path
                     maybeAddImageViewerActivityExtras(this, path, mimeType)
                 }
+            } else {
+                fileUri.createViewIntent(mimeType)
+                    .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                    .addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+                    .apply {
+                        extraPath = path
+                        maybeAddImageViewerActivityExtras(this, path, mimeType)
+                    }
+            }
                 .let {
                     if (withChooser) {
                         it.withChooser(
@@ -1315,6 +1329,37 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                     }
                 }
             startActivitySafe(intent)
+        }
+    }
+
+    private fun resolveDocumentPathToLinuxUri(path: Path): android.net.Uri? {
+        return try {
+            val docPath = path as? com.sentry.filemanager.provider.document.DocumentPath
+                ?: return null
+            val treeUri = docPath.treeUri
+
+            // Find matching DocumentTree storage with a linux path
+            val storages = com.sentry.filemanager.settings.Settings.STORAGES.value ?: return null
+            val docTree = storages
+                .filterIsInstance<com.sentry.filemanager.storage.DocumentTree>()
+                .firstOrNull { it.uri.value == treeUri }
+                ?: return null
+
+            val linuxBase = docTree.linuxPath ?: return null
+
+            // Reconstruct full linux path: base + relative path from document tree root
+            val relativePath = path.toString().trimStart('/')
+            val fullPath = if (relativePath.isEmpty()) linuxBase
+                          else "$linuxBase/$relativePath"
+
+            val file = java.io.File(fullPath)
+            if (!file.exists() || !file.canRead()) return null
+
+            // Convert real linux path through our FileProvider for safe URI
+            val linuxPath = java8.nio.file.Paths.get(file.absolutePath)
+            linuxPath.fileProviderUri
+        } catch (e: Exception) {
+            null
         }
     }
 

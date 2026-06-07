@@ -47,6 +47,7 @@ val appInitializers = listOf(
     ::createNotificationChannels
 )
 
+
 fun hasStoragePermission(): Boolean {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
         android.os.Environment.isExternalStorageManager()
