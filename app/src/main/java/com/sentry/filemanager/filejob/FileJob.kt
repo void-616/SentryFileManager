@@ -5,6 +5,8 @@
 
 package com.sentry.filemanager.filejob
 
+import android.os.Handler
+import android.os.Looper
 import com.sentry.filemanager.util.showToast
 import java.io.IOException
 import java.io.InterruptedIOException
@@ -29,6 +31,10 @@ abstract class FileJob {
             service.showToast(e.toString())
         } finally {
             service.notificationManager.cancel(id)
+            Handler(Looper.getMainLooper()).post {
+                FileJobProgressLiveData.postValue(null)
+                FileJobProgressActivity.userDismissed = false
+            }
         }
     }
 

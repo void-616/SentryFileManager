@@ -286,6 +286,12 @@
             android:theme="@style/Theme.MaterialFiles.Translucent" />
 
         <activity
+            android:name="com.sentry.filemanager.filejob.FileJobProgressActivity"
+            android:theme="@style/Theme.MaterialFiles.Translucent"
+            android:launchMode="singleTop"
+            android:autoRemoveFromRecents="true"
+            android:exported="false" />
+        <activity
             android:name="com.sentry.filemanager.filejob.FileJobErrorDialogActivity"
             android:autoRemoveFromRecents="true"
             android:theme="@style/Theme.MaterialFiles.Translucent" />

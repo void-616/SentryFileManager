@@ -17,12 +17,17 @@ class FileJobReceiver : BroadcastReceiver() {
                 val jobId = intent.getIntExtra(EXTRA_JOB_ID, 0)
                 FileJobService.cancelJob(jobId)
             }
+            ACTION_SHOW -> {
+                FileJobProgressActivity.userDismissed = false
+                FileJobProgressActivity.start(context)
+            }
             else -> throw IllegalArgumentException(action)
         }
     }
 
     companion object {
         private const val ACTION_CANCEL = "cancel"
+        private const val ACTION_SHOW = "show"
 
         private const val EXTRA_JOB_ID = "jobId"
 
@@ -30,5 +35,9 @@ class FileJobReceiver : BroadcastReceiver() {
             Intent(application, FileJobReceiver::class.java)
                 .setAction(ACTION_CANCEL)
                 .putExtra(EXTRA_JOB_ID, jobId)
+
+        fun createShowIntent(context: Context): Intent =
+            Intent(context, FileJobReceiver::class.java)
+                .setAction(ACTION_SHOW)
     }
 }

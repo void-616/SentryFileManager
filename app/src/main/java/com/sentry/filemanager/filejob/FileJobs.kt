@@ -6,6 +6,8 @@
 package com.sentry.filemanager.filejob
 
 import android.app.PendingIntent
+import android.os.Handler
+import android.os.Looper
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -136,16 +138,30 @@ private fun FileJob.postNotification(
         // TODO
         //setContentIntent()
         if (showCancel) {
-            val intent = FileJobReceiver.createIntent(id)
             var pendingIntentFlags = PendingIntent.FLAG_UPDATE_CURRENT
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 pendingIntentFlags = pendingIntentFlags or PendingIntent.FLAG_IMMUTABLE
             }
-            val pendingIntent = PendingIntent.getBroadcast(
-                service, id + 1, intent, pendingIntentFlags
+            // Cancel button (left)
+            val cancelPendingIntent = PendingIntent.getBroadcast(
+                service, id + 1, FileJobReceiver.createIntent(id), pendingIntentFlags
             )
             addAction(
-                R.drawable.close_icon_white_24dp, getString(android.R.string.cancel), pendingIntent
+                R.drawable.close_icon_white_24dp, getString(android.R.string.cancel), cancelPendingIntent
+            )
+            // Spacer — no-op pending intent
+            val spacerPendingIntent = PendingIntent.getBroadcast(
+                service, id + 3,
+                Intent(service, FileJobReceiver::class.java).setAction("noop_${id}"),
+                pendingIntentFlags
+            )
+            addAction(0, "      ", spacerPendingIntent)
+            // Show button (right)
+            val showPendingIntent = PendingIntent.getBroadcast(
+                service, id + 2, FileJobReceiver.createShowIntent(service), pendingIntentFlags
+            )
+            addAction(
+                R.drawable.notification_icon, "Show", showPendingIntent
             )
         }
     }.build()
@@ -340,6 +356,8 @@ private class ScanInfo {
     }
 }
 
+private val progressLogLines = mutableListOf<String>()
+
 private fun FileJob.postTransferSizeNotification(
     transferInfo: TransferInfo,
     currentSource: Path,
@@ -355,6 +373,7 @@ private fun FileJob.postTransferSizeNotification(
     val target = transferInfo.target!!
     val size = transferInfo.size
     val transferredSize = transferInfo.transferredSize
+    val percent = if (size > 0) (transferredSize * 100 / size).toInt() else 0
     if (fileCount == 1) {
         title = getString(titleOneRes, getFileName(currentSource), getFileName(target))
         val sizeString = size.asFileSize().formatHumanReadable(service)
@@ -362,7 +381,7 @@ private fun FileJob.postTransferSizeNotification(
         text = getString(
             R.string.file_job_transfer_size_notification_text_one_format, transferredSizeString,
             sizeString
-        )
+        ) + " ($percent%)"
     } else {
         title = getQuantityString(titleMultipleRes, fileCount, fileCount, getFileName(target))
         val currentFileIndex = (transferInfo.transferredFileCount + 1)
@@ -370,7 +389,28 @@ private fun FileJob.postTransferSizeNotification(
         text = getString(
             R.string.file_job_transfer_size_notification_text_multiple_format, currentFileIndex,
             fileCount
-        )
+        ) + " ($percent%)"
+    }
+    // Push to in-app progress UI
+    val logEntry = "$percent% — ${getFileName(currentSource)}"
+    if (progressLogLines.isEmpty() || progressLogLines.last() != logEntry) {
+        progressLogLines.add(logEntry)
+        if (progressLogLines.size > 100) progressLogLines.removeAt(0)
+    }
+    val event = FileJobProgressEvent(
+        jobId = id,
+        title = title,
+        currentFile = getFileName(currentSource),
+        transferredSize = transferredSize,
+        totalSize = size,
+        percent = percent,
+        transferredFiles = transferInfo.transferredFileCount,
+        totalFiles = fileCount,
+        logLines = progressLogLines.toList()
+    )
+    Handler(Looper.getMainLooper()).post {
+        FileJobProgressLiveData.value = event
+        FileJobProgressActivity.start(service)
     }
     val max: Int
     val progress: Int
