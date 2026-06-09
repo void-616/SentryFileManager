@@ -14,7 +14,7 @@ class WakeWifiLock(tag: String) {
     private val wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, tag)
         .apply { setReferenceCounted(false) }
     private val wifiLock =
-        wifiManager.createWifiLock(WifiManager.WIFI_MODE_FULL_HIGH_PERF, tag)
+        wifiManager.createWifiLock(WifiManager.WIFI_MODE_FULL_LOW_LATENCY, tag)
             .apply { setReferenceCounted(false) }
 
     var isAcquired: Boolean = false

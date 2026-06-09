@@ -761,7 +761,6 @@ private fun FileJob.archive(
         when (result.action) {
             FileJobErrorAction.NEGATIVE, FileJobErrorAction.CANCELED ->
                 throw InterruptedIOException()
-            else -> throw AssertionError(result.action)
         }
     }
 }
@@ -977,7 +976,6 @@ private fun FileJob.create(path: Path, createDirectory: Boolean) {
                 }
                 FileJobErrorAction.NEGATIVE, FileJobErrorAction.CANCELED ->
                     throw InterruptedIOException()
-                else -> throw AssertionError(result.action)
             }
         }
     } while (retry)
@@ -1095,7 +1093,6 @@ private fun FileJob.delete(path: Path, transferInfo: TransferInfo?, actionAllInf
                     return
                 }
                 FileJobErrorAction.NEUTRAL -> throw InterruptedIOException()
-                else -> throw AssertionError(result.action)
             }
         }
     } while (retry)
@@ -1271,7 +1268,6 @@ private fun FileJob.copyOrMove(
                 false
             }
             FileJobErrorAction.NEGATIVE -> throw InterruptedIOException()
-            else -> throw AssertionError(result.action)
         }
     }
     if (source.startsWith(target)) {
@@ -1311,7 +1307,6 @@ private fun FileJob.copyOrMove(
                 false
             }
             FileJobErrorAction.NEGATIVE -> throw InterruptedIOException()
-            else -> throw AssertionError(result.action)
         }
     }
     var target = target
@@ -1622,7 +1617,6 @@ private fun FileJob.rename(path: Path, newPath: Path) {
                 }
                 FileJobErrorAction.NEGATIVE, FileJobErrorAction.CANCELED ->
                     throw InterruptedIOException()
-                else -> throw AssertionError(result.action)
             }
         }
     } while (retry)
@@ -1734,7 +1728,6 @@ private fun FileJob.restoreSeLinuxContext(
                     return
                 }
                 FileJobErrorAction.NEUTRAL -> throw InterruptedIOException()
-                else -> throw AssertionError(result.action)
             }
         }
     } while (retry)
@@ -1879,7 +1872,6 @@ private fun FileJob.setGroup(
                     return
                 }
                 FileJobErrorAction.NEUTRAL -> throw InterruptedIOException()
-                else -> throw AssertionError(result.action)
             }
         }
     } while (retry)
@@ -2025,7 +2017,6 @@ private fun FileJob.setMode(
                     return
                 }
                 FileJobErrorAction.NEUTRAL -> throw InterruptedIOException()
-                else -> throw AssertionError(result.action)
             }
         }
     } while (retry)
@@ -2145,7 +2136,6 @@ private fun FileJob.setOwner(
                     return
                 }
                 FileJobErrorAction.NEUTRAL -> throw InterruptedIOException()
-                else -> throw AssertionError(result.action)
             }
         }
     } while (retry)
@@ -2275,7 +2265,6 @@ private fun FileJob.setSeLinuxContext(
                     return
                 }
                 FileJobErrorAction.NEUTRAL -> throw InterruptedIOException()
-                else -> throw AssertionError(result.action)
             }
         }
     } while (retry)
