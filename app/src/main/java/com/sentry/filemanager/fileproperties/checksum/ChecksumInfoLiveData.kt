@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.fileproperties.checksum
+
 
 import android.os.AsyncTask
 import java8.nio.file.Path

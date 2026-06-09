@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION", "OPT_IN_USAGE")
 package com.sentry.filemanager.util
+
 
 import android.annotation.SuppressLint
 import android.view.Gravity

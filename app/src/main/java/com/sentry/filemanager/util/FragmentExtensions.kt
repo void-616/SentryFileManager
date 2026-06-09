@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.util
+
 
 import android.content.ActivityNotFoundException
 import android.content.Intent

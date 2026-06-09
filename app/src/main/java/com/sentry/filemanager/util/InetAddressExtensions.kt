@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.util
+
 
 import com.sentry.filemanager.app.wifiManager
 import java.net.InetAddress

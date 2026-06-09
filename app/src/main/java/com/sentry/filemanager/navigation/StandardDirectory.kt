@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION", "DATA_CLASS_COPY_VISIBILITY_WILL_BE_CHANGED", "ANNOTATION_TARGETS_NON_EXISTENT_ACCESSOR")
 package com.sentry.filemanager.navigation
+
 
 import android.content.Context
 import androidx.annotation.DrawableRes

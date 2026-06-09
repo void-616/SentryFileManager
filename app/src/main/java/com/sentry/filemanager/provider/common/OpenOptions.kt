@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION", "REDUNDANT_ELSE_IN_WHEN")
 package com.sentry.filemanager.provider.common
+
 
 import java8.nio.file.LinkOption
 import java8.nio.file.OpenOption

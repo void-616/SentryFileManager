@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION", "OVERRIDE_DEPRECATION")
 package com.sentry.filemanager.fileproperties
+
 
 import android.app.Dialog
 import android.os.Bundle

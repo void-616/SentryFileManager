@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.provider.document.resolver
+
 
 import android.database.ContentObserver
 import android.database.Cursor

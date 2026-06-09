@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION", "OVERRIDE_DEPRECATION")
 package com.sentry.filemanager.viewer.text
+
 
 import android.content.Intent
 import android.os.Bundle
@@ -20,6 +22,8 @@ import androidx.core.view.children
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.lifecycle.Lifecycle
 import java8.nio.file.Path
 import kotlinx.coroutines.launch
 import kotlinx.parcelize.Parcelize
@@ -100,6 +104,7 @@ class TextEditorFragment : Fragment(), ConfirmReloadDialogFragment.Listener,
         this.argsFile = argsFile
 
         val activity = requireActivity() as AppCompatActivity
+        @Suppress("DEPRECATION")
         activity.lifecycleScope.launchWhenCreated {
             activity.setSupportActionBar(binding.toolbar)
             activity.supportActionBar!!.setDisplayHomeAsUpEnabled(true)

@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.settings
+
 
 import android.content.Context
 import android.util.AttributeSet

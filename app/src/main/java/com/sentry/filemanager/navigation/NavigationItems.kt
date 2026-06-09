@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION", "ANNOTATION_TARGETS_NON_EXISTENT_ACCESSOR")
 package com.sentry.filemanager.navigation
+
 
 import android.content.Context
 import android.content.Intent

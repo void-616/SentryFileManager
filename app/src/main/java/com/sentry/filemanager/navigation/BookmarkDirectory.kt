@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION", "DATA_CLASS_COPY_VISIBILITY_WILL_BE_CHANGED")
 package com.sentry.filemanager.navigation
+
 
 import android.os.Parcelable
 import java8.nio.file.Path

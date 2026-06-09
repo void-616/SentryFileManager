@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION", "OVERRIDE_DEPRECATION")
 package com.sentry.filemanager.viewer.image
+
 
 import android.content.Intent
 import android.graphics.Color

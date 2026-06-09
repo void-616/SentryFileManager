@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.ui
+
 
 import android.annotation.SuppressLint
 import android.content.Context

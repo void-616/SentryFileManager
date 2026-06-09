@@ -45,6 +45,7 @@ class EditRuleActivity : AppActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_rule)
 
+        @Suppress("DEPRECATION")
         existingRule = intent.getParcelableExtra(EXTRA_RULE)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)

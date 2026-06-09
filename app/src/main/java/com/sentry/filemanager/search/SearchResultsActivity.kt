@@ -49,6 +49,7 @@ class SearchResultsActivity : AppActivity() {
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = adapter
 
+        @Suppress("DEPRECATION")
         val filter = intent.getParcelableExtra<SearchFilter>(EXTRA_FILTER) ?: return
         val startPath = intent.getStringExtra(EXTRA_START_PATH) ?: return
 

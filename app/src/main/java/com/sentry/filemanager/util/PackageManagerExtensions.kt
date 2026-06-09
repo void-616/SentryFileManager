@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION", "WRONG_INVOCATION_KIND")
 package com.sentry.filemanager.util
+
 
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager

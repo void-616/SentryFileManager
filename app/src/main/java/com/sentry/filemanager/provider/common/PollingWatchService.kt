@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION", "PLATFORM_CLASS_MAPPED_TO_KOTLIN")
 package com.sentry.filemanager.provider.common
+
 
 import java8.nio.file.DirectoryIteratorException
 import java8.nio.file.LinkOption

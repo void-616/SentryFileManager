@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.storage
+
 
 import android.app.Activity
 import android.os.Bundle

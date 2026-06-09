@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION", "OVERRIDE_DEPRECATION", "ANNOTATION_TARGETS_NON_EXISTENT_ACCESSOR")
 package com.sentry.filemanager.storage
+
 
 import android.os.Bundle
 import androidx.annotation.StringRes

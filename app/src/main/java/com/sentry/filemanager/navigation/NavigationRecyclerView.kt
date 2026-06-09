@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.navigation
+
 
 import android.content.Context
 import android.graphics.Canvas

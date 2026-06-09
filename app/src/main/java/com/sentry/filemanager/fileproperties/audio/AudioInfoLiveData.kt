@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.fileproperties.audio
+
 
 import android.media.MediaMetadataRetriever
 import android.os.AsyncTask

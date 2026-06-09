@@ -3,80 +3,113 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="14dp"
+    android:paddingBottom="10dp">
 
+    <!-- Name + version + status row -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/plugin_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="?android:textColorPrimary" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:id="@+id/plugin_name"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textAppearance="?textAppearanceBody1"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/plugin_version"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?textAppearanceCaption"
-                    android:textColor="?android:textColorSecondary"
-                    android:layout_marginStart="8dp" />
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/plugin_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:textAppearance="?textAppearanceBody2"
-                android:textColor="?android:textColorSecondary"
-                android:maxLines="2"
-                android:ellipsize="end" />
-
-        </LinearLayout>
+        <TextView
+            android:id="@+id/plugin_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:textColor="?android:textColorSecondary"
+            android:layout_marginStart="8dp" />
 
         <TextView
             android:id="@+id/plugin_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
+            android:textSize="11sp"
             android:textStyle="bold"
-            android:layout_marginStart="8dp" />
+            android:layout_marginStart="10dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp" />
 
     </LinearLayout>
 
+    <!-- Description -->
+    <TextView
+        android:id="@+id/plugin_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textSize="13sp"
+        android:textColor="?android:textColorSecondary"
+        android:maxLines="2"
+        android:ellipsize="end" />
+
+    <!-- Author + installed date row -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="4dp">
+
+        <TextView
+            android:id="@+id/plugin_author"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="11sp"
+            android:textColor="?android:textColorSecondary" />
+
+        <TextView
+            android:id="@+id/plugin_installed_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:textColor="?android:textColorSecondary" />
+
+    </LinearLayout>
+
+    <!-- Action buttons row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:gravity="end">
+
+        <TextView
+            android:id="@+id/btn_plugin_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check Update"
+            android:textSize="12sp"
+            android:textColor="?android:textColorSecondary"
+            android:padding="6dp"
+            android:layout_marginEnd="4dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?selectableItemBackground" />
 
         <TextView
             android:id="@+id/btn_plugin_toggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Toggle"
-            android:textColor="?colorPrimary"
             android:textSize="12sp"
-            android:padding="4dp"
+            android:textStyle="bold"
+            android:padding="6dp"
+            android:layout_marginEnd="4dp"
             android:clickable="true"
             android:focusable="true"
             android:background="?selectableItemBackground" />
@@ -88,8 +121,8 @@
             android:text="Uninstall"
             android:textColor="?colorError"
             android:textSize="12sp"
-            android:padding="4dp"
-            android:layout_marginStart="8dp"
+            android:textStyle="bold"
+            android:padding="6dp"
             android:clickable="true"
             android:focusable="true"
             android:background="?selectableItemBackground" />
@@ -98,7 +131,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="0.5dp"
         android:layout_marginTop="12dp"
         android:background="?dividerColor" />
 

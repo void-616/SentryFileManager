@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.fileaction
+
 
 import android.app.Dialog
 import android.content.Context

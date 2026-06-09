@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION", "USELESS_ELVIS", "UNNECESSARY_SAFE_CALL")
 package com.sentry.filemanager.filejob
+
 
 import android.app.Dialog
 import android.content.Context

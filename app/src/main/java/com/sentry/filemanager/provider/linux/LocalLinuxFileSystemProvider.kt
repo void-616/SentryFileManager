@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION", "UNCHECKED_CAST", "USELESS_CAST")
 package com.sentry.filemanager.provider.linux
+
 
 import android.system.OsConstants
 import java8.nio.channels.FileChannel

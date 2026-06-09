@@ -1,4 +1,6 @@
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.plugin
+
 
 import android.content.Context
 import android.content.Intent

@@ -33,6 +33,11 @@ import kotlinx.coroutines.runBlocking
 import com.sentry.filemanager.R
 import com.sentry.filemanager.app.BackgroundActivityStarter
 import com.sentry.filemanager.app.mainExecutor
+import com.sentry.filemanager.provider.document.DocumentPath
+import com.sentry.filemanager.provider.document.isDocumentPath
+import com.sentry.filemanager.settings.Settings
+import com.sentry.filemanager.storage.DocumentTree
+import com.sentry.filemanager.util.supportsExternalStorageManager
 import com.sentry.filemanager.compat.mainExecutorCompat
 import com.sentry.filemanager.file.FileItem
 import com.sentry.filemanager.file.MimeType
@@ -464,6 +469,29 @@ private fun FileJob.postTransferCountNotification(
         indeterminate = false
     }
     postNotification(title, text, null, null, max, progress, indeterminate, true)
+
+    // Push to in-app progress dialog
+    val percentFromCount = if (fileCount > 0) (progress * 100 / fileCount) else 0
+    val event = FileJobProgressEvent(
+        jobId = id,
+        title = title,
+        currentFile = getFileName(currentPath),
+        transferredSize = progress.toLong(),
+        totalSize = fileCount.toLong(),
+        percent = percentFromCount,
+        transferredFiles = progress,
+        totalFiles = fileCount,
+        logLines = progressLogLines.toList()
+    )
+    val logEntry = "${getFileName(currentPath)}"
+    if (progressLogLines.isEmpty() || progressLogLines.last() != logEntry) {
+        progressLogLines.add(logEntry)
+        if (progressLogLines.size > 100) progressLogLines.removeAt(0)
+    }
+    Handler(Looper.getMainLooper()).post {
+        FileJobProgressLiveData.value = event
+        FileJobProgressActivity.start(service)
+    }
 }
 
 private class TransferInfo(scanInfo: ScanInfo, val target: Path?) {
@@ -761,6 +789,7 @@ private fun FileJob.archive(
         when (result.action) {
             FileJobErrorAction.NEGATIVE, FileJobErrorAction.CANCELED ->
                 throw InterruptedIOException()
+            else -> throw AssertionError(result.action)
         }
     }
 }
@@ -976,6 +1005,7 @@ private fun FileJob.create(path: Path, createDirectory: Boolean) {
                 }
                 FileJobErrorAction.NEGATIVE, FileJobErrorAction.CANCELED ->
                     throw InterruptedIOException()
+                else -> throw AssertionError(result.action)
             }
         }
     } while (retry)
@@ -988,9 +1018,59 @@ class DeleteFileJob(private val paths: List<Path>) : FileJob() {
         val transferInfo = TransferInfo(scanInfo, null)
         val actionAllInfo = ActionAllInfo()
         for (path in paths) {
+            // Fast path: if this is a DocumentPath on SD card and we have
+            // MANAGE_EXTERNAL_STORAGE, bypass SAF and delete directly via Linux path
+            if (tryFastDelete(path, transferInfo)) {
+                throwIfInterrupted()
+                continue
+            }
             deleteRecursively(path, transferInfo, actionAllInfo)
             throwIfInterrupted()
         }
+    }
+
+    /**
+     * Attempts to delete via direct Linux path, bypassing SAF IPC overhead.
+     * Returns true if fast delete was used, false if we should fall back to SAF.
+     */
+    private fun tryFastDelete(path: Path, transferInfo: TransferInfo): Boolean {
+        if (!path.isDocumentPath) return false
+        if (!Environment::class.supportsExternalStorageManager()) return false
+        if (!Environment.isExternalStorageManager()) return false
+
+        val docPath = path as? DocumentPath ?: return false
+        val treeUri = docPath.treeUri
+        val storages = Settings.STORAGES.value ?: return false
+        val docTree = storages
+            .filterIsInstance<DocumentTree>()
+            .firstOrNull { it.uri.value == treeUri } ?: return false
+        val linuxBase = docTree.linuxPath ?: return false
+
+        val relativePath = path.toString().trimStart('/')
+        val fullPath = if (relativePath.isEmpty()) linuxBase else "$linuxBase/$relativePath"
+        val file = java.io.File(fullPath)
+        if (!file.exists()) return false
+
+        return try {
+            fastDeleteRecursive(file, transferInfo)
+            true
+        } catch (e: Exception) {
+            // Fall back to SAF on any error
+            false
+        }
+    }
+
+    private fun fastDeleteRecursive(file: java.io.File, transferInfo: TransferInfo) {
+        if (file.isDirectory) {
+            file.listFiles()?.forEach { child ->
+                fastDeleteRecursive(child, transferInfo)
+                throwIfInterrupted()
+            }
+        }
+        file.delete()
+        transferInfo.incrementTransferredFileCount()
+        val linuxPath = java8.nio.file.Paths.get(file.absolutePath)
+        postDeleteNotification(transferInfo, linuxPath)
     }
 
     @Throws(IOException::class)
@@ -1268,6 +1348,7 @@ private fun FileJob.copyOrMove(
                 false
             }
             FileJobErrorAction.NEGATIVE -> throw InterruptedIOException()
+            else -> throw AssertionError(result.action)
         }
     }
     if (source.startsWith(target)) {
@@ -1307,6 +1388,7 @@ private fun FileJob.copyOrMove(
                 false
             }
             FileJobErrorAction.NEGATIVE -> throw InterruptedIOException()
+            else -> throw AssertionError(result.action)
         }
     }
     var target = target
@@ -1617,6 +1699,7 @@ private fun FileJob.rename(path: Path, newPath: Path) {
                 }
                 FileJobErrorAction.NEGATIVE, FileJobErrorAction.CANCELED ->
                     throw InterruptedIOException()
+                else -> throw AssertionError(result.action)
             }
         }
     } while (retry)

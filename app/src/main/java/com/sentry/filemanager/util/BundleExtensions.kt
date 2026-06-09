@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.util
+
 
 import android.os.Bundle
 import android.os.Parcelable

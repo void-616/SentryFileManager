@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.fileproperties.apk
+
 
 import android.content.pm.PackageManager
 import android.os.AsyncTask

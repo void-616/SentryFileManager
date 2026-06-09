@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION", "UNCHECKED_CAST", "USELESS_CAST")
 package com.sentry.filemanager.coil
+
 
 import android.content.Context
 import android.content.pm.ApplicationInfo

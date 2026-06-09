@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.file
+
 
 import android.content.Context
 import android.text.format.DateUtils

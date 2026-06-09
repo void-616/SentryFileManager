@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.theme.night
+
 
 import androidx.appcompat.app.AppCompatDelegate
 

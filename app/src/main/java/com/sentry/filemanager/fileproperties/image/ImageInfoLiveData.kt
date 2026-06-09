@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.fileproperties.image
+
 
 import android.graphics.BitmapFactory
 import android.os.AsyncTask

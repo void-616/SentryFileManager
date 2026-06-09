@@ -1,4 +1,6 @@
+@file:Suppress("DEPRECATION", "ANNOTATION_TARGETS_NON_EXISTENT_ACCESSOR")
 package com.sentry.filemanager.theme.custom
+
 
 import androidx.annotation.ColorRes
 import com.sentry.filemanager.R

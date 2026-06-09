@@ -204,3 +204,12 @@ dependencies {
     implementation 'org.slf4j:slf4j-android:1.7.36'
 
 }
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    kotlinOptions {
+        freeCompilerArgs += [
+            '-Xannotation-default-target=param-property',
+            '-Xconsistent-data-class-copy-visibility'
+        ]
+    }
+}

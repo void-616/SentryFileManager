@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION", "WRONG_INVOCATION_KIND")
 package com.sentry.filemanager.provider.remote
+
 
 import android.os.Binder
 import android.os.IInterface

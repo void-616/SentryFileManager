@@ -4,7 +4,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION", "OVERRIDE_DEPRECATION")
 package com.sentry.filemanager.about
+
 
 import android.net.Uri
 import android.os.Bundle

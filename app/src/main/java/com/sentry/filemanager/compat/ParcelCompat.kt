@@ -21,7 +21,7 @@ fun <E : Parcelable?, L : MutableList<E>> Parcel.readParcelableListCompat(
     classLoader: ClassLoader?
 ): L {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-        @Suppress("UNCHECKED_CAST")
+        @Suppress("UNCHECKED_CAST", "DEPRECATION")
         return readParcelableList(list, classLoader) as L
     } else {
         val size = readInt()
@@ -31,7 +31,7 @@ fun <E : Parcelable?, L : MutableList<E>> Parcel.readParcelableListCompat(
         }
         val listSize = list.size
         for (index in 0..<size) {
-            @Suppress("UNCHECKED_CAST")
+            @Suppress("UNCHECKED_CAST", "DEPRECATION")
             val element = readParcelable<E>(classLoader) as E
             if (index < listSize) {
                 list[index] = element
@@ -61,5 +61,5 @@ fun <T : Parcelable?> Parcel.writeParcelableListCompat(value: List<T>?, flags: I
     }
 }
 
-@Suppress("UNCHECKED_CAST")
+@Suppress("UNCHECKED_CAST", "DEPRECATION")
 fun <T> Parcel.readSerializableCompat(): T? = readSerializable() as T?

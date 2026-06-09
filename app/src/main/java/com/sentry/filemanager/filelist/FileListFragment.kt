@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION", "OVERRIDE_DEPRECATION")
 package com.sentry.filemanager.filelist
+
 
 import android.app.Activity
 import com.sentry.filemanager.provider.document.documentUri
@@ -780,6 +782,7 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == android.app.Activity.RESULT_OK) {
+            @Suppress("DEPRECATION")
             val filter = result.data?.getParcelableExtra<com.sentry.filemanager.search.SearchFilter>(
                 com.sentry.filemanager.search.AdvancedSearchActivity.EXTRA_FILTER
             ) ?: return@registerForActivityResult

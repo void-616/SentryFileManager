@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.ftpserver
+
 
 import android.content.BroadcastReceiver
 import android.content.Context

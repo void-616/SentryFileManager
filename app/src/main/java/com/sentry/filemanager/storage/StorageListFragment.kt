@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION", "OVERRIDE_DEPRECATION")
 package com.sentry.filemanager.storage
+
 
 import android.graphics.drawable.NinePatchDrawable
 import android.os.Bundle

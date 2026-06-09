@@ -66,6 +66,7 @@ class TabsActivity : AppActivity() {
         btnAddTab.setOnClickListener { addNewTab() }
 
         if (savedInstanceState != null) {
+            @Suppress("DEPRECATION")
             val saved = savedInstanceState.getParcelableArrayList<TabEntry>(KEY_TABS)
             if (!saved.isNullOrEmpty()) {
                 tabs.addAll(saved)

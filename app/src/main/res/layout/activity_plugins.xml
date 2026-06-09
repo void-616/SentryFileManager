@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/plugins_empty"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:text="No plugins installed\nTap + to install a .sfp file"
-        android:textAppearance="?textAppearanceBody1"
+        android:text="No plugins installed\nTap + to install a .sfp or .apk file"
+        android:textSize="14sp"
         android:textColor="?android:textColorSecondary"
         android:visibility="gone" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/plugins_recycler"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:paddingBottom="80dp" />
+        android:paddingBottom="88dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_install_plugin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
+        android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         android:src="@drawable/add_icon_white_24dp"
-        android:contentDescription="Install plugin" />
+        android:contentDescription="Install plugin"
+        app:layout_anchorGravity="bottom|end" />
 
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

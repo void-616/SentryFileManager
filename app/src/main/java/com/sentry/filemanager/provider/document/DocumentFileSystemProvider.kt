@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION", "UNNECESSARY_NOT_NULL_ASSERTION")
 package com.sentry.filemanager.provider.document
+
 
 import android.net.Uri
 import android.os.Build

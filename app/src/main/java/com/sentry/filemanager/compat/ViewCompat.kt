@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION", "UNCHECKED_CAST", "USELESS_CAST")
 package com.sentry.filemanager.compat
+
 
 import android.content.res.ColorStateList
 import android.graphics.PorterDuff

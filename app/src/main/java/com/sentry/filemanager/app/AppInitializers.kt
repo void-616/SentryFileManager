@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.app
+
 
 import android.os.AsyncTask
 import android.os.Build

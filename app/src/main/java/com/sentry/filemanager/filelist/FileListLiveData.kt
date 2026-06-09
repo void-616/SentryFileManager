@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.filelist
+
 
 import android.os.AsyncTask
 import java8.nio.file.DirectoryIteratorException

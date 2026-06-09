@@ -1,4 +1,6 @@
+@file:Suppress("DEPRECATION", "OVERRIDE_DEPRECATION")
 package com.sentry.filemanager.util
+
 
 import android.content.ContentResolver
 import android.database.CharArrayBuffer

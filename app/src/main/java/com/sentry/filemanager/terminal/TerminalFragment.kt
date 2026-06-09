@@ -3,7 +3,9 @@
  * SentryOS Project
  */
 
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.terminal
+
 
 import android.content.ClipboardManager
 import android.content.Context

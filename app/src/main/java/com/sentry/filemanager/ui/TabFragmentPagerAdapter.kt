@@ -3,7 +3,9 @@
  * All Rights Reserved.
  */
 
+@file:Suppress("DEPRECATION")
 package com.sentry.filemanager.ui
+
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

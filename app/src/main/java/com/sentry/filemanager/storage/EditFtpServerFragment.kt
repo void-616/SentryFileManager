@@ -16,6 +16,8 @@ import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.lifecycle.Lifecycle
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.launch
 import kotlinx.parcelize.Parcelize
@@ -49,6 +51,7 @@ class EditFtpServerFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        @Suppress("DEPRECATION")
         lifecycleScope.launchWhenStarted {
             launch { viewModel.connectState.collect { onConnectStateChanged(it) } }
         }
@@ -67,6 +70,7 @@ class EditFtpServerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val activity = requireActivity() as AppCompatActivity
+        @Suppress("DEPRECATION")
         activity.lifecycleScope.launchWhenCreated {
             activity.setSupportActionBar(binding.toolbar)
             activity.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
