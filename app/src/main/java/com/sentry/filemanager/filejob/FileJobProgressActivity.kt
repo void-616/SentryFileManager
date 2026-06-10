@@ -94,8 +94,14 @@ class FileJobProgressActivity : AppActivity() {
         currentFileText.text = event.currentFile
         progressBar.progress = event.percent
 
-        transferredSizeText.text = formatSize(event.transferredSize)
-        totalSizeText.text = "/ ${formatSize(event.totalSize)}"
+        if (event.transferredSize == -1L) {
+            // Count-based job (delete) — show file count instead of bytes
+            transferredSizeText.text = "${event.transferredFiles} files"
+            totalSizeText.text = "/ ${event.totalFiles} total"
+        } else {
+            transferredSizeText.text = formatSize(event.transferredSize)
+            totalSizeText.text = "/ ${formatSize(event.totalSize)}"
+        }
 
         // Update log
         logAdapter.clear()

@@ -472,22 +472,22 @@ private fun FileJob.postTransferCountNotification(
 
     // Push to in-app progress dialog
     val percentFromCount = if (fileCount > 0) (progress * 100 / fileCount) else 0
+    val logEntry = getFileName(currentPath)
+    if (progressLogLines.isEmpty() || progressLogLines.last() != logEntry) {
+        progressLogLines.add(logEntry)
+        if (progressLogLines.size > 100) progressLogLines.removeAt(0)
+    }
     val event = FileJobProgressEvent(
         jobId = id,
         title = title,
-        currentFile = getFileName(currentPath),
-        transferredSize = progress.toLong(),
-        totalSize = fileCount.toLong(),
+        currentFile = logEntry,
+        transferredSize = -1L,
+        totalSize = -1L,
         percent = percentFromCount,
         transferredFiles = progress,
         totalFiles = fileCount,
         logLines = progressLogLines.toList()
     )
-    val logEntry = "${getFileName(currentPath)}"
-    if (progressLogLines.isEmpty() || progressLogLines.last() != logEntry) {
-        progressLogLines.add(logEntry)
-        if (progressLogLines.size > 100) progressLogLines.removeAt(0)
-    }
     Handler(Looper.getMainLooper()).post {
         FileJobProgressLiveData.value = event
         FileJobProgressActivity.start(service)
