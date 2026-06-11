@@ -814,6 +814,22 @@ class CopyFileJob(private val sources: List<Path>, private val targetDirectory: 
         )
         val transferInfo = TransferInfo(scanInfo, targetDirectory)
         val actionAllInfo = ActionAllInfo()
+        // Fire initial event immediately so dialog shows correct total size from the start
+        val initialTitle = if (isExtract) "Extracting…" else "Copying…"
+        Handler(Looper.getMainLooper()).post {
+            FileJobProgressLiveData.value = FileJobProgressEvent(
+                jobId = id,
+                title = initialTitle,
+                currentFile = "",
+                transferredSize = 0L,
+                totalSize = scanInfo.size,
+                percent = 0,
+                transferredFiles = 0,
+                totalFiles = transferInfo.fileCount,
+                logLines = emptyList()
+            )
+            FileJobProgressActivity.start(service)
+        }
         for (source in sources) {
             val target = if (source.parent == targetDirectory) {
                 getTargetPathForDuplicate(source)
